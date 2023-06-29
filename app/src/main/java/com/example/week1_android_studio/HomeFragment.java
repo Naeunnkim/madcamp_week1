@@ -6,6 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,6 +22,25 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_home, container, false);
+
+        initUI(rootView);
+
+        return rootView;
+    }
+
+    private void initUI(ViewGroup rootView){
+        ArrayList<String> testDataSet = new ArrayList<>();
+        for (int i = 0; i<20; i++) {
+            testDataSet.add("TEST DATA" + i);
+        }
+
+        RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+
+        CustomAdapter customAdapter = new CustomAdapter(testDataSet);
+        recyclerView.setAdapter(customAdapter);
     }
 }
