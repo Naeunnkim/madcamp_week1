@@ -10,7 +10,7 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
-    HomeFragment homeFragment;
+    ContactsFragment contactsFragment;
     GalleryFragment galleryFragment;
     FreeFragment freeFragment;
 
@@ -19,18 +19,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        homeFragment = new HomeFragment();
+        contactsFragment = new ContactsFragment();
         galleryFragment = new GalleryFragment();
         freeFragment = new FreeFragment();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.containers, homeFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.containers, contactsFragment).commit();
 
         NavigationBarView navigationBarView = findViewById(R.id.bottom_navigationview);
         navigationBarView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener(){
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item){
                 if(item.getItemId() == R.id.contacts){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.containers, homeFragment).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.containers, contactsFragment).commit();
                     return true;
                 } else if (item.getItemId() == R.id.photo) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.containers, galleryFragment).commit();
