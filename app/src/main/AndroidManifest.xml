@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomeInfoActivity"></activity>
-        <activity android:name="HomeFragment"></activity>
+        <activity android:name="ContactsFragment"></activity>
     </application>
 
 </manifest>

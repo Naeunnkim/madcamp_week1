@@ -8,7 +8,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
 <<<<<<< HEAD:app/src/main/java/com/example/week1_android_studio/ContactsFragment.java
- * Use the {@link ContactsFragment#newInstance} factory method to
+ * Use the  factory method to
 =======
  * Use the  factory method to
 >>>>>>> 8e843dbbf2146997a6f248f314a12cad6d6a78de:app/src/main/java/com/example/week1_android_studio/HomeFragment.java
@@ -50,7 +49,6 @@ public class ContactsFragment extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_home, container, false);
         setHasOptionsMenu(true);
 
-        
         initUI(rootView);
 
         return rootView;
@@ -72,7 +70,6 @@ public class ContactsFragment extends Fragment {
         customAdapter.setOnItemclickListener(new CustomAdapter.OnItemClickListener() {
             @Override
             public void onItemClicked(int position, String data) {
-                //여기서 다음 탭으로 넘어가면...되지 않을까?
                 Intent intent = new Intent(getContext(), HomeInfoActivity.class);
                 startActivity(intent);
             }
