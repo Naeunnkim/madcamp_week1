@@ -1,16 +1,21 @@
 package com.example.week1_android_studio;
 
+import android.graphics.Rect;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Gallery;
+import android.widget.GridLayout;
 
 import java.util.ArrayList;
 
@@ -38,13 +43,11 @@ public class GalleryFragment extends Fragment {
     }
 
     private void init(ViewGroup rootView) {
-        ArrayList<GalleryData> dataset = new ArrayList<>();
-        for(int i=0; i<3; i++) {
-        }
         RecyclerView recyclerView = rootView.findViewById(R.id.galleryView);
+        recyclerView.addItemDecoration(new GallerySpacing(getContext()));
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(linearLayoutManager);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
 
         adapter = new GalleryAdapter();
         recyclerView.setAdapter(adapter);
@@ -57,6 +60,30 @@ public class GalleryFragment extends Fragment {
         data = new GalleryData(R.drawable.img2);
         adapter.addItem(data);
         data = new GalleryData(R.drawable.img3);
+        adapter.addItem(data);
+        data = new GalleryData(R.drawable.img4);
+        adapter.addItem(data);
+        data = new GalleryData(R.drawable.img5);
+        adapter.addItem(data);
+        data = new GalleryData(R.drawable.img6);
+        adapter.addItem(data);
+        data = new GalleryData(R.drawable.img7);
+        adapter.addItem(data);
+        data = new GalleryData(R.drawable.img8);
+        adapter.addItem(data);
+        data = new GalleryData(R.drawable.img9);
+        adapter.addItem(data);
+        data = new GalleryData(R.drawable.img10);
+        adapter.addItem(data);
+        data = new GalleryData(R.drawable.img11);
+        adapter.addItem(data);
+        data = new GalleryData(R.drawable.img12);
+        adapter.addItem(data);
+        data = new GalleryData(R.drawable.img13);
+        adapter.addItem(data);
+        data = new GalleryData(R.drawable.img14);
+        adapter.addItem(data);
+        data = new GalleryData(R.drawable.img15);
         adapter.addItem(data);
     }
 }
