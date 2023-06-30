@@ -13,6 +13,20 @@ import java.util.ArrayList;
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder>{
 
     private ArrayList<String> localDataSet;
+
+    //click event implementation
+    //OnItemClickListener 인터페이스 선언
+    public interface OnItemClickListener {
+        void onItemClicked(int position, String data);
+    }
+
+    //OnItemClickListener 참조 변수 선언
+    private OnItemClickListener itemClickListener;
+
+    //OnItemClickListener 전달 메소드
+    public void setOnItemclickListener(OnItemClickListener listener) {
+        itemClickListener = listener;
+    }
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView textView;
         public ViewHolder(@NonNull View itemView) {
@@ -33,6 +47,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recyclerview_item, parent, false);
         CustomAdapter.ViewHolder viewHolder = new CustomAdapter.ViewHolder(view);
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String data = "";
+                int position = viewHolder.getAdapterPosition();
+                if(position!=RecyclerView.NO_POSITION) {
+                    data = viewHolder.getTextView().getText().toString();
+                }
+                itemClickListener.onItemClicked(position, data);
+            }
+        });
 
         return viewHolder;
     }
