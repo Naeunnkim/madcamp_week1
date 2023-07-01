@@ -32,6 +32,6 @@
         android:layout_gravity="center"
         android:background="@drawable/call_button_shape"
         android:drawableStart="@drawable/phone_call"
-        android:onClick="btn"/>
+        android:onClick="call_btn"/>
 
 </LinearLayout>

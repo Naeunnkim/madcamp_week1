@@ -1,6 +1,7 @@
 package com.example.week1_android_studio;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,6 +14,14 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 /**
@@ -49,15 +58,46 @@ public class ContactsFragment extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_home, container, false);
         setHasOptionsMenu(true);
 
-        initUI(rootView);
+        try {
+            initUI(rootView);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
 
         return rootView;
     }
-    private void initUI(ViewGroup rootView){
+    private void initUI(ViewGroup rootView) throws IOException, JSONException {
         ArrayList<String> testDataSet = new ArrayList<>();
-        for (int i = 0; i<20; i++) {
-            testDataSet.add("TEST DATA" + i);
+
+        AssetManager assetManager = getContext().getAssets();
+        InputStream is = assetManager.open("jsons/contacts.json");
+//
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+
+        StringBuffer buffer = new StringBuffer();
+        String line = reader.readLine();
+        while(line != null){
+            buffer.append(line + "\n");
+            line = reader.readLine();
         }
+
+        String jsonData = buffer.toString();
+
+        JSONArray jsonArray = new JSONArray(jsonData);
+        String s = "";
+
+        for (int i = 0; i < jsonArray.length(); i++){
+            JSONObject jo = jsonArray.getJSONObject(i);
+            String name = jo.getString("Name");
+            String phone = jo.getString("Telephone");
+            testDataSet.add(name);
+        }
+
+//        for (int i = 0; i < 20; i++) {
+//            testDataSet.add("TEST DATA" + i);
+//        }
 
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
 
