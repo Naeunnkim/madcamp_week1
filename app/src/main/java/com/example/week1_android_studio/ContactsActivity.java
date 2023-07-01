@@ -3,6 +3,7 @@ package com.example.week1_android_studio;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,11 +19,11 @@ public class ContactsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contactsinfo);
 
-//        Toolbar mToolbar = findViewById(R.id.contacts_toolbar);
-//        setSupportActionBar(mToolbar);
-//
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        Toolbar mToolbar = findViewById(R.id.contact_toolbar);
+        setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         TextView contact_name = (TextView) findViewById(R.id.contact_name);
         TextView contact_number = (TextView) findViewById(R.id.contact_number);
@@ -72,5 +73,14 @@ public class ContactsActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
