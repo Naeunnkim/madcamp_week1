@@ -10,6 +10,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://jitpack.io" }
+        jcenter()
     }
 }
 rootProject.name = "week1_android_studio"
