@@ -85,5 +85,15 @@ public class GalleryFragment extends Fragment {
         adapter.addItem(data);
         data = new GalleryData(R.drawable.img15);
         adapter.addItem(data);
+        data = new GalleryData(R.drawable.img16);
+        adapter.addItem(data);
+        data = new GalleryData(R.drawable.img17);
+        adapter.addItem(data);
+        data = new GalleryData(R.drawable.img18);
+        adapter.addItem(data);
+        data = new GalleryData(R.drawable.img19);
+        adapter.addItem(data);
+        data = new GalleryData(R.drawable.img20);
+        adapter.addItem(data);
     }
 }
