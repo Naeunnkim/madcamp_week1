@@ -69,7 +69,8 @@ public class ContactsFragment extends Fragment {
         return rootView;
     }
     private void initUI(ViewGroup rootView) throws IOException, JSONException {
-        ArrayList<String> testDataSet = new ArrayList<>();
+        ArrayList<String> nameDataSet = new ArrayList<>();
+        ArrayList<String> telDataSet = new ArrayList<>();
 
         AssetManager assetManager = getContext().getAssets();
         InputStream is = assetManager.open("jsons/contacts.json");
@@ -91,26 +92,23 @@ public class ContactsFragment extends Fragment {
         for (int i = 0; i < jsonArray.length(); i++){
             JSONObject jo = jsonArray.getJSONObject(i);
             String name = jo.getString("Name");
-            String phone = jo.getString("Telephone");
-            testDataSet.add(name);
+            String phone = jo.getString("tel");
+            nameDataSet.add(name);
+            telDataSet.add(phone);
         }
-
-//        for (int i = 0; i < 20; i++) {
-//            testDataSet.add("TEST DATA" + i);
-//        }
 
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        CustomAdapter customAdapter = new CustomAdapter(testDataSet);
+        CustomAdapter customAdapter = new CustomAdapter(nameDataSet, telDataSet);
 
         //click event implementation
         customAdapter.setOnItemclickListener(new CustomAdapter.OnItemClickListener() {
             @Override
             public void onItemClicked(int position, String data) {
-                Intent intent = new Intent(getContext(), HomeInfoActivity.class);
+                Intent intent = new Intent(getContext(), ContactsActivity.class);
                 startActivity(intent);
             }
         });
