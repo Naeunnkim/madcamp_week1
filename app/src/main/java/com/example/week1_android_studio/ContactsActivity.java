@@ -10,12 +10,19 @@ import android.widget.ToggleButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class ContactsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contactsinfo);
+
+//        Toolbar mToolbar = findViewById(R.id.contacts_toolbar);
+//        setSupportActionBar(mToolbar);
+//
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         TextView contact_name = (TextView) findViewById(R.id.contact_name);
         TextView contact_number = (TextView) findViewById(R.id.contact_number);
