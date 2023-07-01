@@ -46,7 +46,7 @@ public class GalleryFragment extends Fragment {
         RecyclerView recyclerView = rootView.findViewById(R.id.galleryView);
         recyclerView.addItemDecoration(new GallerySpacing(getContext()));
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3);
         recyclerView.setLayoutManager(gridLayoutManager);
 
         adapter = new GalleryAdapter();

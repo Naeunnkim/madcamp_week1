@@ -6,8 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class GalleryViewHolder extends RecyclerView.ViewHolder {
-
-    ImageView img;
+    private ImageView img;
 
     public GalleryViewHolder(@NonNull View itemView) {
         super(itemView);
