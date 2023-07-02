@@ -9,7 +9,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.appcompat.widget.Toolbar
-        android.id="@+id/contacts_toolbar"
+        android:id="@+id/contacts_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#6850a4"
