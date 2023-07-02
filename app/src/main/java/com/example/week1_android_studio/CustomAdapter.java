@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -36,16 +37,21 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     }
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView textView;
+        private ImageView imageView;
         private Button call_button;
         private LinearLayout contact_recyclerview;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.textView);
+            imageView = itemView.findViewById(R.id.imageView);
             call_button = itemView.findViewById(R.id.call_button);
             contact_recyclerview = itemView.findViewById(R.id.contact_recyclerview);
         }
         public TextView getTextView() {
             return textView;
+        }
+        public ImageView getImageView() {
+            return imageView;
         }
         public Button getCall_button(){
             return call_button;
@@ -64,17 +70,17 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                 .inflate(R.layout.recyclerview_item, parent, false);
         CustomAdapter.ViewHolder viewHolder = new CustomAdapter.ViewHolder(view);
 
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String data = "";
-                int position = viewHolder.getAdapterPosition();
-                if(position!=RecyclerView.NO_POSITION) {
-                    data = viewHolder.getTextView().getText().toString();
-                }
-                itemClickListener.onItemClicked(position, data);
-            }
-        });
+//        view.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String data = "";
+//                int position = viewHolder.getAdapterPosition();
+//                if(position!=RecyclerView.NO_POSITION) {
+//                    data = viewHolder.getTextView().getText().toString();
+//                }
+//                itemClickListener.onItemClicked(position, data);
+//            }
+//        });
 
         return viewHolder;
     }
@@ -83,8 +89,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     public void onBindViewHolder(@NonNull CustomAdapter.ViewHolder holder, int position) {
         String name = nameDataSet.get(position);
         holder.textView.setText(name);
+
         String tel = telDataSet.get(position);
         String pic = galleryDataSet.get(position);
+
+        Context context = holder.contact_recyclerview.getContext();
+        int id = context.getResources().getIdentifier(pic, "drawable", context.getPackageName());
+        holder.imageView.setImageResource(id);
+        holder.imageView.setClipToOutline(true);
 
         holder.contact_recyclerview.setOnClickListener(new View.OnClickListener() {
             @Override

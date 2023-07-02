@@ -10,7 +10,9 @@
         android:id="@+id/imageView"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:src="@drawable/profile" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile"
+        />
 
     <TextView
         android:id="@+id/textView"

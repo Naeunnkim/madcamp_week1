@@ -21,7 +21,9 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="start"
-        android:layout_margin="30dp" />
+        android:layout_margin="30dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile"/>
 
         <LinearLayout
             android:orientation="vertical"

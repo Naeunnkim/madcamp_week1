@@ -44,18 +44,8 @@ public class ContactsActivity extends AppCompatActivity {
         contact_name.setText(name);
         contact_number.setText(number);
 
-        int id = getResources().getIdentifier(pic, null, null);
+        int id = getResources().getIdentifier(pic, "drawable", this.getPackageName());
         contact_profile.setImageResource(id);
-
-//        try {
-//            File image = new File(pic);
-//            if(image.exists()) {
-//                Bitmap myBitmap = BitmapFactory.decodeFile(image.getAbsolutePath());
-//                contact_profile.setImageBitmap(myBitmap);
-//            }
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
 
         call_btn.setOnClickListener(new View.OnClickListener() {
             @Override
