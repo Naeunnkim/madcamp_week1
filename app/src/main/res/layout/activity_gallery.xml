@@ -11,13 +11,13 @@
         android:id="@+id/gallery_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#673AB7" />
+        android:background="#6850a4" />
 
     <com.github.chrisbanes.photoview.PhotoView
+        android:id="@+id/photoview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/photoview"/>
-
+        />
 
 
 </LinearLayout>

@@ -23,6 +23,7 @@ public class GalleryActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24);
 
         PhotoView photoView = findViewById(R.id.photoview);
 

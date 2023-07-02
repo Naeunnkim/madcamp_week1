@@ -29,6 +29,7 @@ public class ContactsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24);
 
         TextView contact_name = (TextView) findViewById(R.id.contact_name);
         TextView contact_number = (TextView) findViewById(R.id.contact_number);

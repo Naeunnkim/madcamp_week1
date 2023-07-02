@@ -9,10 +9,18 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.Toast;
+import android.widget.Toolbar;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,19 +44,8 @@ import java.util.ArrayList;
 public class ContactsFragment extends Fragment {
 
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.person_add, menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -56,7 +53,7 @@ public class ContactsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_home, container, false);
-        setHasOptionsMenu(true);
+//        setHasOptionsMenu(true);
 
         try {
             initUI(rootView);
@@ -66,8 +63,38 @@ public class ContactsFragment extends Fragment {
             throw new RuntimeException(e);
         }
 
+        setHasOptionsMenu(true);
         return rootView;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().invalidateOptionsMenu();
+    }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.clear();
+        inflater.inflate(R.menu.person_add, menu);
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.tab1) {
+            View view = item.getActionView();
+            view.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getContext(), ContactsAddPerson.class);
+                    startActivity(intent);
+                }
+            });
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void initUI(ViewGroup rootView) throws IOException, JSONException {
         ArrayList<String> nameDataSet = new ArrayList<>();
         ArrayList<String> telDataSet = new ArrayList<>();
@@ -80,7 +107,7 @@ public class ContactsFragment extends Fragment {
 
         StringBuffer buffer = new StringBuffer();
         String line = reader.readLine();
-        while(line != null){
+        while (line != null) {
             buffer.append(line + "\n");
             line = reader.readLine();
         }
@@ -89,7 +116,7 @@ public class ContactsFragment extends Fragment {
 
         JSONArray jsonArray = new JSONArray(jsonData);
 
-        for (int i = 0; i < jsonArray.length(); i++){
+        for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject jo = jsonArray.getJSONObject(i);
             String name = jo.getString("Name");
             String phone = jo.getString("tel");

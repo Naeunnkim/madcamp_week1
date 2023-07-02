@@ -27,6 +27,7 @@
         </activity>
         <activity android:name=".ContactsActivity" />
         <activity android:name=".ContactsFragment" />
+        <activity android:name=".ContactsAddPerson"/>
     </application>
 
 </manifest>
