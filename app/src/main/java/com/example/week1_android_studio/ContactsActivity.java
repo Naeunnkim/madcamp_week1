@@ -1,8 +1,6 @@
 package com.example.week1_android_studio;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -15,8 +13,6 @@ import android.widget.ToggleButton;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
-import java.io.File;
 
 public class ContactsActivity extends AppCompatActivity {
     @Override
@@ -48,15 +44,18 @@ public class ContactsActivity extends AppCompatActivity {
         contact_name.setText(name);
         contact_number.setText(number);
 
-        try {
-            File image = new File(pic);
-            if(image.exists()==true) {
-                Bitmap myBitmap = BitmapFactory.decodeFile(image.getAbsolutePath());
-                contact_profile.setImageBitmap(myBitmap);
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        int id = getResources().getIdentifier(pic, null, null);
+        contact_profile.setImageResource(id);
+
+//        try {
+//            File image = new File(pic);
+//            if(image.exists()) {
+//                Bitmap myBitmap = BitmapFactory.decodeFile(image.getAbsolutePath());
+//                contact_profile.setImageBitmap(myBitmap);
+//            }
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
 
         call_btn.setOnClickListener(new View.OnClickListener() {
             @Override
