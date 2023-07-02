@@ -17,14 +17,22 @@
         android:layout_height="wrap_content"
         android:background="#6850a4" />
 
-        <ImageView
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:layout_marginLeft="90dp"
-            android:layout_marginTop="60dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/profile"
-            tools:ignore="MissingConstraints" ></ImageView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="60dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile"
+                tools:ignore="MissingConstraints"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,14 +51,14 @@
             android:maxWidth="25dp"
             android:maxHeight="25dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/baseline_person_24"></ImageView>
+            android:src="@drawable/baseline_person_24"/>
 
         <EditText
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight="4"
             android:inputType="text"
-            android:hint="이름"></EditText>
+            android:hint="이름"/>
     </LinearLayout>
 
     <LinearLayout
@@ -69,14 +77,14 @@
             android:maxWidth="25dp"
             android:maxHeight="25dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/baseline_phone_24"></ImageView>
+            android:src="@drawable/baseline_phone_24"/>
 
         <EditText
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight="4"
             android:inputType="phone"
-            android:hint="전화"></EditText>
+            android:hint="전화"/>
     </LinearLayout>
 
     <LinearLayout
@@ -95,13 +103,13 @@
             android:maxWidth="25dp"
             android:maxHeight="25dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/baseline_email_24"></ImageView>
+            android:src="@drawable/baseline_email_24"/>
 
         <EditText
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight="4"
             android:inputType="textEmailAddress"
-            android:hint="이메일"></EditText>
+            android:hint="이메일"/>
     </LinearLayout>
 </LinearLayout>
