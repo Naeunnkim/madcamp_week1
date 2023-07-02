@@ -14,6 +14,10 @@ public class ContactsAddPerson extends AppCompatActivity {
 
         Toolbar mToolbar = findViewById(R.id.contactadd_toolbar);
         setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24);
     }
 
     @Override

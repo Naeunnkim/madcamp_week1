@@ -54,7 +54,8 @@ public class ContactsFragment extends Fragment {
 
         toolbar.setOnMenuItemClickListener(menuItem -> {
             if (menuItem.getItemId() == R.id.tab1){
-                Toast.makeText(getActivity(), "사람 추가", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), ContactsAddPerson.class);
+                startActivity(intent);
                 return true;
             }
             return true;
