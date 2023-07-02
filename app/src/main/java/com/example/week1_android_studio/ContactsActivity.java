@@ -1,17 +1,22 @@
 package com.example.week1_android_studio;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import java.io.File;
 
 public class ContactsActivity extends AppCompatActivity {
     @Override
@@ -27,6 +32,8 @@ public class ContactsActivity extends AppCompatActivity {
 
         TextView contact_name = (TextView) findViewById(R.id.contact_name);
         TextView contact_number = (TextView) findViewById(R.id.contact_number);
+        ImageView contact_profile = (ImageView) findViewById(R.id.contact_profile);
+
         Button call_btn = (Button) findViewById(R.id.phone_call);
         Button message_btn = (Button) findViewById(R.id.message);
         ToggleButton favorites_btn = (ToggleButton) findViewById(R.id.favorites);
@@ -35,9 +42,20 @@ public class ContactsActivity extends AppCompatActivity {
 
         String name = intent.getExtras().getString("name");
         String number = intent.getExtras().getString("tel");
+        String pic = intent.getExtras().getString("pic");
 
         contact_name.setText(name);
         contact_number.setText(number);
+
+        try {
+            File image = new File(pic);
+            if(image.exists()==true) {
+                Bitmap myBitmap = BitmapFactory.decodeFile(image.getAbsolutePath());
+                contact_profile.setImageBitmap(myBitmap);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         call_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +94,7 @@ public class ContactsActivity extends AppCompatActivity {
     }
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+            case android.R.id.home:{
                 finish();
                 return true;
             }

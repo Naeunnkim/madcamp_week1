@@ -19,6 +19,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     private ArrayList<String> nameDataSet;
     private ArrayList<String> telDataSet;
+    private ArrayList<String> galleryDataSet;
 
     //click event implementation
     //OnItemClickListener 인터페이스 선언
@@ -50,9 +51,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             return call_button;
         }
     }
-    public CustomAdapter (ArrayList<String> nameSet, ArrayList<String> telSet) {
+    public CustomAdapter (ArrayList<String> nameSet, ArrayList<String> telSet, ArrayList<String> gallerySet) {
         nameDataSet = nameSet;
         telDataSet = telSet;
+        galleryDataSet = gallerySet;
     }
 
     @NonNull
@@ -82,6 +84,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         String name = nameDataSet.get(position);
         holder.textView.setText(name);
         String tel = telDataSet.get(position);
+        String pic = galleryDataSet.get(position);
 
         holder.contact_recyclerview.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +96,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
                 contactActivity.putExtra("name", name);
                 contactActivity.putExtra("tel", tel);
+                contactActivity.putExtra("pic", pic);
 
                 ((MainActivity)context).startActivity(contactActivity);
             }

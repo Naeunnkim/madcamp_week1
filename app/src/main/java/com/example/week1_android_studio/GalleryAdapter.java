@@ -44,16 +44,12 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
 
     private ArrayList<GalleryData> listData = new ArrayList<>();
 
-    //click event implementation
-    //OnItemClickListener 인터페이스 선언
     public interface OnItemClickListener {
         void onItemClicked(int position, String data);
     }
 
-    //OnItemClickListener 참조 변수 선언
     private OnItemClickListener itemClickListener;
 
-    //OnItemClickListener 전달 메소드
     public void setOnItemclickListener(OnItemClickListener listener) {
         itemClickListener = listener;
     }

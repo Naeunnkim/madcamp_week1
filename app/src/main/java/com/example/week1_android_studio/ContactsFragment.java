@@ -71,6 +71,7 @@ public class ContactsFragment extends Fragment {
     private void initUI(ViewGroup rootView) throws IOException, JSONException {
         ArrayList<String> nameDataSet = new ArrayList<>();
         ArrayList<String> telDataSet = new ArrayList<>();
+        ArrayList<String> galleryDataSet = new ArrayList<>();
 
         AssetManager assetManager = getContext().getAssets();
         InputStream is = assetManager.open("jsons/contacts.json");
@@ -87,14 +88,15 @@ public class ContactsFragment extends Fragment {
         String jsonData = buffer.toString();
 
         JSONArray jsonArray = new JSONArray(jsonData);
-        String s = "";
 
         for (int i = 0; i < jsonArray.length(); i++){
             JSONObject jo = jsonArray.getJSONObject(i);
             String name = jo.getString("Name");
             String phone = jo.getString("tel");
+            String image_path = jo.getString("pic");
             nameDataSet.add(name);
             telDataSet.add(phone);
+            galleryDataSet.add(image_path);
         }
 
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
@@ -102,7 +104,7 @@ public class ContactsFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        CustomAdapter customAdapter = new CustomAdapter(nameDataSet, telDataSet);
+        CustomAdapter customAdapter = new CustomAdapter(nameDataSet, telDataSet, galleryDataSet);
 
         //click event implementation
         customAdapter.setOnItemclickListener(new CustomAdapter.OnItemClickListener() {
