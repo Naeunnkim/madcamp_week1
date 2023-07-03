@@ -20,6 +20,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     private ArrayList<String> nameDataSet;
     private ArrayList<String> telDataSet;
+    private ArrayList<String> emailDataSet;
     private ArrayList<String> galleryDataSet;
 
     //click event implementation
@@ -57,9 +58,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             return call_button;
         }
     }
-    public CustomAdapter (ArrayList<String> nameSet, ArrayList<String> telSet, ArrayList<String> gallerySet) {
+    public CustomAdapter (ArrayList<String> nameSet, ArrayList<String> telSet, ArrayList<String> emailSet, ArrayList<String> gallerySet) {
         nameDataSet = nameSet;
         telDataSet = telSet;
+        emailDataSet = emailSet;
         galleryDataSet = gallerySet;
     }
 
@@ -69,19 +71,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recyclerview_item, parent, false);
         CustomAdapter.ViewHolder viewHolder = new CustomAdapter.ViewHolder(view);
-
-//        view.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String data = "";
-//                int position = viewHolder.getAdapterPosition();
-//                if(position!=RecyclerView.NO_POSITION) {
-//                    data = viewHolder.getTextView().getText().toString();
-//                }
-//                itemClickListener.onItemClicked(position, data);
-//            }
-//        });
-
         return viewHolder;
     }
 
@@ -91,6 +80,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         holder.textView.setText(name);
 
         String tel = telDataSet.get(position);
+        String email = emailDataSet.get(position);
         String pic = galleryDataSet.get(position);
 
         Context context = holder.contact_recyclerview.getContext();
@@ -108,6 +98,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
                 contactActivity.putExtra("name", name);
                 contactActivity.putExtra("tel", tel);
+                contactActivity.putExtra("email", email);
                 contactActivity.putExtra("pic", pic);
 
                 ((MainActivity)context).startActivity(contactActivity);

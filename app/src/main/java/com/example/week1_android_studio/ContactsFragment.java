@@ -9,7 +9,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -77,7 +76,6 @@ public class ContactsFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        getActivity().invalidateOptionsMenu();
     }
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -105,11 +103,12 @@ public class ContactsFragment extends Fragment {
     private void initUI(ViewGroup rootView) throws IOException, JSONException {
         ArrayList<String> nameDataSet = new ArrayList<>();
         ArrayList<String> telDataSet = new ArrayList<>();
+        ArrayList<String> emailDataSet = new ArrayList<>();
         ArrayList<String> galleryDataSet = new ArrayList<>();
 
         AssetManager assetManager = getContext().getAssets();
         InputStream is = assetManager.open("jsons/contacts.json");
-//
+
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 
         StringBuffer buffer = new StringBuffer();
@@ -127,9 +126,11 @@ public class ContactsFragment extends Fragment {
             JSONObject jo = jsonArray.getJSONObject(i);
             String name = jo.getString("Name");
             String phone = jo.getString("tel");
+            String email_address = jo.getString("email");
             String image_path = jo.getString("pic");
             nameDataSet.add(name);
             telDataSet.add(phone);
+            emailDataSet.add(email_address);
             galleryDataSet.add(image_path);
         }
 
@@ -138,7 +139,7 @@ public class ContactsFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        CustomAdapter customAdapter = new CustomAdapter(nameDataSet, telDataSet, galleryDataSet);
+        CustomAdapter customAdapter = new CustomAdapter(nameDataSet, telDataSet, emailDataSet, galleryDataSet);
 
         //click event implementation
         customAdapter.setOnItemclickListener(new CustomAdapter.OnItemClickListener() {

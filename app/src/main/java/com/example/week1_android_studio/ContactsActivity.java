@@ -29,6 +29,7 @@ public class ContactsActivity extends AppCompatActivity {
 
         TextView contact_name = (TextView) findViewById(R.id.contact_name);
         TextView contact_number = (TextView) findViewById(R.id.contact_number);
+        TextView contact_email = (TextView) findViewById(R.id.contact_email);
         ImageView contact_profile = (ImageView) findViewById(R.id.contact_profile);
 
         Button call_btn = (Button) findViewById(R.id.phone_call);
@@ -39,10 +40,12 @@ public class ContactsActivity extends AppCompatActivity {
 
         String name = intent.getExtras().getString("name");
         String number = intent.getExtras().getString("tel");
+        String email = intent.getExtras().getString("email");
         String pic = intent.getExtras().getString("pic");
 
         contact_name.setText(name);
         contact_number.setText(number);
+        contact_email.setText(email);
 
         int id = getResources().getIdentifier(pic, "drawable", this.getPackageName());
         contact_profile.setImageResource(id);
