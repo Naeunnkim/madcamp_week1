@@ -42,5 +42,4 @@ public class WordGameActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

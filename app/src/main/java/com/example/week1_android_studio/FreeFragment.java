@@ -43,5 +43,4 @@ public class FreeFragment extends Fragment {
         });
         return rootView;
     }
-
 }
