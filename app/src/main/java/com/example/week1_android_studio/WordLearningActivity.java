@@ -53,7 +53,7 @@ public class WordLearningActivity extends AppCompatActivity {
         StringBuilder buffer = new StringBuilder();
         String line = reader.readLine();
         while (line != null) {
-            buffer.append(line + "\n");
+        buffer.append(line + "\n");
             line = reader.readLine();
         }
 

@@ -30,6 +30,7 @@
         <activity android:name=".ContactsAddPerson"/>
         <activity android:name=".WordLearningActivity"/>
         <activity android:name=".WordGameActivity"/>
+        <activity android:name=".Game1MainActivity"/>
     </application>
 
 </manifest>

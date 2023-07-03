@@ -4,19 +4,5 @@
   {"Name":  "Thor Odinson", "tel": "010-9393-1029", "pic": "@drawable/img3"},
   {"Name":  "Bruce Banner", "tel": "010-2385-1636", "pic": "@drawable/img4"},
   {"Name":  "Natasha Romanoff", "tel": "010-3953-0293", "pic": "@drawable/img5"},
-  {"Name":  "Clint Barton", "tel": "010-2104-8766", "pic": "@drawable/img6"},
-  {"Name":  "Wanda Maximoff", "tel": "010-9923-7754", "pic": "@drawable/img7"},
-  {"Name":  "Peter Quill", "tel": "010-1124-0612", "pic": "@drawable/img8"},
-  {"Name":  "Peter Parker", "tel": "010-2133-5572", "pic": "@drawable/img9"},
-  {"Name":  "Peggy Carter", "tel": "010-4859-1004", "pic": "@drawable/img10"},
-  {"Name":  "Stephen Strange", "tel": "010-1012-9988", "pic": "@drawable/img11"},
-  {"Name":  "Scott Lang", "tel": "010-2299-1829", "pic": "@drawable/img12"},
-  {"Name":  "Sam Wilson", "tel": "010-8762-2930", "pic": "@drawable/img13"},
-  {"Name":  "Nick Fury", "tel": "010-2398-1032", "pic": "@drawable/img14"},
-  {"Name":  "James Barnes", "tel": "010-5235-2300", "pic": "@drawable/img15"},
-  {"Name":  "Virginia Potts", "tel": "010-9593-2548", "pic": "@drawable/img16"},
-  {"Name":  "James Rhodes", "tel": "010-1223-4409", "pic": "@drawable/img17"},
-  {"Name":  "Norman Osborn", "tel": "010-2938-1213", "pic": "@drawable/img18"},
-  {"Name":  "Obadiah Stane", "tel": "010-2203-3098", "pic": "@drawable/img19"},
-  {"Name":  "Johann Shmidt", "tel": "010-6097-8975", "pic": "@drawable/img20"}
+  {"Name":  "Clint Barton", "tel": "010-2104-8766", "pic": "@drawable/img6"}
 ]
