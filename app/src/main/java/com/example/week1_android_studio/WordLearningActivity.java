@@ -2,6 +2,7 @@ package com.example.week1_android_studio;
 
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -76,5 +77,16 @@ public class WordLearningActivity extends AppCompatActivity {
         WordLearningAdapter wordLearningAdapter = new WordLearningAdapter(englishDataSet, koreanDataSet);
 
         recyclerView.setAdapter(wordLearningAdapter);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
