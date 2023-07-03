@@ -1,12 +1,14 @@
 package com.example.week1_android_studio;
 
 import android.content.res.AssetManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -24,13 +26,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Game1MainActivity extends AppCompatActivity implements View.OnClickListener {
-
     private Button[] buttons = new Button[10]; //버튼 배열
     private ArrayList<String> wordList = new ArrayList<String>(); //영단어 리스트
     private ArrayList<String> meaningList  = new ArrayList<String>(); //한글뜻 리스트
     private ArrayList<Game1MemoryCard> cards = new ArrayList<Game1MemoryCard>(); //카드 리스트
     private TextView resultText; //결과 텍스트
     private TextView resetBtn; //초기화 버튼
+
+    int preCardPosition = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,10 +106,13 @@ public class Game1MainActivity extends AppCompatActivity implements View.OnClick
                 cards.add(meaningtmp);
             }
 
-            //버튼 리스트에 각각의 텍스트 지정해주기...
-            buttons[i].setText(cards.get(i).getImageId());
+            //기본 이미지로 변경
+            buttons[i].setBackgroundResource(R.drawable.question);
 
+            buttons[i].setAlpha(1.0f);
         }
+        //결과 텍스트 초기화
+        resultText.setText("");
     }
 
     public void onClick(View view) {
@@ -133,6 +139,109 @@ public class Game1MainActivity extends AppCompatActivity implements View.OnClick
             position = 8;
         } else if (id == R.id.imageBtn9) {
             position = 9;
+        }
+
+        updateModel(position);
+        updateView(position);
+    }
+
+    //데이터 변경
+    private void updateModel(int position) {
+        Game1MemoryCard card = cards.get(position);
+
+        //나중에 카드 비교할 때 뒤집고 다시 클릭하는 것 방지
+        if(card.isFaceUp()) {
+            Toast.makeText(this, "이미 선택된 카드입니다", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(preCardPosition==-1) { //뒤집힌 카드: 이전에 뒤집힌 카드 0 또는 2개 일 때
+            restoreCard(); //카드 초기화
+
+            preCardPosition = position; //위치 저장
+        }
+        else { //이전에 뒤집힌 카드가 1개일 때
+            checkForMatch(preCardPosition, position);
+            preCardPosition=-1;
+        }
+        //반대 값 넣어주기
+        cards.get(position).setFaceUp(!card.isFaceUp());
+
+    }
+
+    //뷰 변경
+    private void updateView(int position) {
+        Game1MemoryCard card = cards.get(position);
+
+        //뒤집었으면 랜덤 이미지로 보여준다
+        if(card.isFaceUp()) {
+            buttons[position].setBackgroundResource(R.drawable.button_drawable_background);
+            buttons[position].setText(cards.get(position).getImageId());
+        }
+        else {
+            buttons[position].setBackgroundResource(R.drawable.button_drawable_background);
+        }
+    }
+
+    //매치되지 않은 카드 초기화
+    private void restoreCard() {
+        for(int i=0; i<cards.size(); i++) {
+            //매치되지 않은 것
+            if(!cards.get(i).isMatched()) {
+                //이미지 앞으로
+                buttons[i].setBackgroundResource(R.drawable.question);
+
+                //데이터 수정
+                cards.get(i).setFaceUp(false);
+            }
+        }
+    }
+
+    /*
+    카드 이미지 비교
+    prePosition : 이전 카드 위치
+    position: 현재 카드 위치
+     */
+    private void checkForMatch(int prePosition, int position) {
+        //처음과 두번째가 매치 된다면.... 어케 짜지
+        String pretmp = cards.get(prePosition).getImageId();
+        String posttmp = cards.get(position).getImageId();
+
+        if(returnIndex(prePosition) == returnIndex(position)) {
+            resultText.setText("매치 성공");
+
+            cards.get(prePosition).setMatched(true);
+            cards.get(position).setMatched(true);
+
+            //색상 변경
+            buttons[prePosition].setAlpha(0.1f);
+            buttons[position].setAlpha(0.1f);
+
+            //완료 체크
+            checkCompletion();
+        }
+        else {
+            resultText.setText("매치 실패");
+        }
+
+    }
+
+    private int returnIndex(int position) {
+        String tmp = cards.get(position).getImageId();
+        if(wordList.contains(tmp)) { return wordList.indexOf(tmp); }
+        else { return meaningList.indexOf(tmp); }
+    }
+
+    private void checkCompletion() {
+        int cnt=0;
+        for(int i=0; i<cards.size(); i++) {
+            if(cards.get(i).isMatched()) {
+                cnt++;
+            }
+        }
+
+        if(cnt==cards.size()) {
+            resultText.setText("게임 종료");
         }
     }
 
