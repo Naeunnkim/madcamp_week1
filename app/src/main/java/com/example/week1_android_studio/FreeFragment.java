@@ -37,7 +37,7 @@ public class FreeFragment extends Fragment {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), WordLearningActivity.class);
+                Intent intent = new Intent(getContext(), WordGameActivity.class);
                 startActivity(intent);
             }
         });
