@@ -3,16 +3,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FreeFragment">
+    tools:context=".FreeFragment"
+    android:layout_gravity="center"
+    android:background="@drawable/tab3img">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="30sp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Free Fragment"-->
+<!--        />-->
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:text="Free Fragment"
-        />
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#FFFFFFFF"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:text="단어 학습"
+            android:layout_weight="1"
+            android:layout_marginTop="250dp"/>
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#FFFFFFFF"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:text="게임 시작"
+            android:layout_weight="1"
+            android:layout_marginTop="250dp"/>
+
+    </LinearLayout>
 
 </LinearLayout>
