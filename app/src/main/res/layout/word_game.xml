@@ -3,7 +3,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:background="@drawable/gameactivityimg">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/word_game_toolbar"
@@ -15,7 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="300dp">
 
         <Button
             android:id="@+id/game1"
@@ -23,7 +25,9 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:text="카드 짝 맞추기"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="50dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"/>
 
         <Button
             android:id="@+id/game2"
@@ -31,7 +35,9 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:text="단어 퀴즈"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="50dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"/>
 
         <Button
             android:id="@+id/game3"
@@ -40,7 +46,9 @@
             android:layout_gravity="center"
             android:text="게임3"
             android:layout_marginTop="50dp"
-            android:layout_marginBottom="50dp"/>
+            android:layout_marginBottom="50dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"/>
 
         </LinearLayout>
 

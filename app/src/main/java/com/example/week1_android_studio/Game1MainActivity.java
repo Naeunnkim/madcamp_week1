@@ -29,9 +29,11 @@ public class Game1MainActivity extends AppCompatActivity implements View.OnClick
     private Button[] buttons = new Button[10]; //버튼 배열
     private ArrayList<String> wordList = new ArrayList<String>(); //영단어 리스트
     private ArrayList<String> meaningList  = new ArrayList<String>(); //한글뜻 리스트
+    private ArrayList<String> originalWordList = new ArrayList<>(); //영단어 리스트 원본
+    private ArrayList<String> originalMeaningList = new ArrayList<>(); //뜻 리스트 원본
     private ArrayList<Game1MemoryCard> cards = new ArrayList<Game1MemoryCard>(); //카드 리스트
     private TextView resultText; //결과 텍스트
-    private TextView resetBtn; //초기화 버튼
+    //private TextView resetBtn; //초기화 버튼
 
     int preCardPosition = -1;
 
@@ -84,6 +86,8 @@ public class Game1MainActivity extends AppCompatActivity implements View.OnClick
 
             wordList.add(name);
             meaningList.add(phone);
+            originalWordList.add(name);
+            originalMeaningList.add(phone);
         }
 
         //순서 섞기
@@ -190,6 +194,7 @@ public class Game1MainActivity extends AppCompatActivity implements View.OnClick
             if(!cards.get(i).isMatched()) {
                 //이미지 앞으로
                 buttons[i].setBackgroundResource(R.drawable.question);
+                buttons[i].setText("");
 
                 //데이터 수정
                 cards.get(i).setFaceUp(false);
@@ -228,8 +233,8 @@ public class Game1MainActivity extends AppCompatActivity implements View.OnClick
 
     private int returnIndex(int position) {
         String tmp = cards.get(position).getImageId();
-        if(wordList.contains(tmp)) { return wordList.indexOf(tmp); }
-        else { return meaningList.indexOf(tmp); }
+        if(originalWordList.contains(tmp)) { return wordList.indexOf(tmp); }
+        else { return originalMeaningList.indexOf(tmp); }
     }
 
     private void checkCompletion() {
