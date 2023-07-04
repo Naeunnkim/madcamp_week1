@@ -1,9 +1,7 @@
 package com.example.week1_android_studio;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,10 +44,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        super.onOptionsItemSelected(item);
-//        return getSupportFragmentManager().getFragments().get(getSupportFragmentManager().getFragments().size()-1).onOptionsItemSelected(item);
-//    }
 }
