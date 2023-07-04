@@ -31,10 +31,11 @@ public class ContactsActivity extends AppCompatActivity {
         TextView contact_number = (TextView) findViewById(R.id.contact_number);
         TextView contact_email = (TextView) findViewById(R.id.contact_email);
         ImageView contact_profile = (ImageView) findViewById(R.id.contact_profile);
+        contact_profile.setClipToOutline(true);
 
         Button call_btn = (Button) findViewById(R.id.phone_call);
         Button message_btn = (Button) findViewById(R.id.message);
-        ToggleButton favorites_btn = (ToggleButton) findViewById(R.id.favorites);
+        Button favorites_btn = (Button) findViewById(R.id.email);
 
         Intent intent = getIntent();
 
@@ -70,19 +71,19 @@ public class ContactsActivity extends AppCompatActivity {
             }
         });
 
-        favorites_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (favorites_btn.isSelected()){
-                    favorites_btn.setBackgroundResource(R.drawable.phone_unmark_favorites);
-                    favorites_btn.setSelected(false);
-                }
-                else{
-                    favorites_btn.setBackgroundResource(R.drawable.phone_mark_favorites);
-                    favorites_btn.setSelected(true);
-                }
-            }
-        });
+//        favorites_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (favorites_btn.isSelected()){
+//                    favorites_btn.setBackgroundResource(R.drawable.phone_unmark_favorites);
+//                    favorites_btn.setSelected(false);
+//                }
+//                else{
+//                    favorites_btn.setBackgroundResource(R.drawable.phone_mark_favorites);
+//                    favorites_btn.setSelected(true);
+//                }
+//            }
+//        });
 
     }
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -12,92 +12,176 @@
         android:background="#6850a4"
         />
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">
-
-    <ImageView
-        android:id="@+id/contact_profile"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="start"
-        android:layout_margin="30dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/profile"/>
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/contact_profile"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/profile_img_background"
+                android:src="@drawable/profile"/>
 
             <TextView
                 android:id="@+id/contact_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:textSize="25sp"
+                android:layout_gravity="center"
+                android:textSize="30sp"
                 android:text="name" />
 
-            <TextView
-                android:id="@+id/contact_number"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:textSize="20sp"
-                android:text="telephone" />
+                android:layout_gravity="center"
+                android:layout_margin="5dp">
 
-            <TextView
-                android:id="@+id/contact_email"
-                android:layout_width="wrap_content"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/phone_call"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="#00ff0000"
+                    android:layout_margin="10dp"
+                    android:drawableStart="@drawable/phone_icon"
+                    android:onClick="calling_btn" />
+
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/message"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="#00ff0000"
+                    android:drawableStart="@drawable/message_icon"
+                    android:layout_margin="10dp"
+                    android:onClick="message_btn"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/email"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="#00ff0000"
+                    android:drawableStart="@drawable/email_icon"
+                    android:layout_margin="10dp"
+                    android:onClick="message_btn"/>
+
+                <!--        <ToggleButton-->
+                <!--            android:id="@+id/favorites"-->
+                <!--            android:layout_width="70dp"-->
+                <!--            android:layout_height="70dp"-->
+                <!--            android:layout_gravity="center"-->
+                <!--            android:background="#00ff0000"-->
+                <!--            android:drawableStart="@drawable/phone_unmark_favorites"-->
+                <!--            android:layout_margin="10dp"-->
+                <!--            android:textOn=""-->
+                <!--            android:textOff=""-->
+                <!--            android:layout_weight="1"-->
+                <!--            android:onClick="favorites_btn"/>-->
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:textSize="20sp"
-                android:text="email_address" />
+                android:layout_margin="5dp">
 
+                <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp" >
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="휴대전화"
+                            android:textSize="15dp"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:id="@+id/contact_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textSize="20sp"
+                            android:text="telephone"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/contact_option_background"/>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp" >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="이메일"
+                            android:textSize="15dp"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:id="@+id/contact_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textSize="20sp"
+                            android:text="email_address"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/contact_option_background"/>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
         </LinearLayout>
+    </ScrollView>
 
-    </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/phone_call"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:background="#00ff0000"
-            android:drawableStart="@drawable/phone_calling"
-            android:layout_margin="10dp"
-            android:onClick="calling_btn"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/message"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:background="#00ff0000"
-            android:drawableStart="@drawable/phone_message"
-            android:layout_margin="10dp"
-            android:onClick="message_btn"/>
-
-        <ToggleButton
-            android:id="@+id/favorites"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:background="#00ff0000"
-            android:drawableStart="@drawable/phone_unmark_favorites"
-            android:layout_margin="10dp"
-            android:textOn=""
-            android:textOff=""
-            android:layout_weight="1"
-            android:onClick="favorites_btn"/>
-    </LinearLayout>
 
 </LinearLayout>
