@@ -19,13 +19,26 @@
         android:orientation="vertical"
         android:layout_marginTop="300dp">
 
+        <TextView
+            android:id="@+id/id_ending_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idLLWordle"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:padding="8dp"
+            android:text="어떤 게임을 할 거야?"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="normal"/>
+
         <Button
             android:id="@+id/game1"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:text="카드 짝 맞추기"
-            android:layout_marginTop="50dp"
             android:backgroundTint="@color/white"
             android:textColor="@color/black"/>
 
@@ -35,7 +48,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:text="단어 퀴즈"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:backgroundTint="@color/white"
             android:textColor="@color/black"/>
 
@@ -45,7 +58,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:text="Wordle"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="50dp"
             android:backgroundTint="@color/white"
             android:textColor="@color/black"/>

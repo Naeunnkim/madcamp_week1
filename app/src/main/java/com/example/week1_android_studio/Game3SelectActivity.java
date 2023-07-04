@@ -1,12 +1,16 @@
 package com.example.week1_android_studio;
 
+import android.app.Dialog;
 import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -27,6 +31,8 @@ import java.util.Random;
 public class Game3SelectActivity extends AppCompatActivity{
     private String WORD;
     private String MEAN;
+
+    Dialog dialog;
 
     private String[] getWord() throws IOException, JSONException {
         ArrayList<String> englishDataSet = new ArrayList<>();
@@ -72,6 +78,10 @@ public class Game3SelectActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game3_play_layout);
+
+        dialog = new Dialog(Game3SelectActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.how_to_play_wordle);
 
         try {
             String[] word_mean = getWord();
@@ -441,14 +451,32 @@ public class Game3SelectActivity extends AppCompatActivity{
             }
         });
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.wordle_help_menu, menu);
+
+        return true;
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:{
-                finish();
-                return true;
-            }
+        if (item.getItemId() == android.R.id.home){
+            finish();
+            return true;
+        } else if (item.getItemId() == R.id.wordle_helper) {
+            showDialog();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void showDialog(){
+        dialog.show();
+        dialog.findViewById(R.id.yesBtn).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
     }
 }
