@@ -24,6 +24,7 @@ import java.io.InputStreamReader;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class Game1MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button[] buttons = new Button[10]; //버튼 배열
@@ -31,6 +32,8 @@ public class Game1MainActivity extends AppCompatActivity implements View.OnClick
     private ArrayList<String> meaningList  = new ArrayList<String>(); //한글뜻 리스트
     private ArrayList<String> originalWordList = new ArrayList<>(); //영단어 리스트 원본
     private ArrayList<String> originalMeaningList = new ArrayList<>(); //뜻 리스트 원본
+    private ArrayList<String> thirtyWordList = new ArrayList<>();
+    private ArrayList<String> thirtyMeaningList = new ArrayList<>();
     private ArrayList<Game1MemoryCard> cards = new ArrayList<Game1MemoryCard>(); //카드 리스트
     private TextView resultText; //결과 텍스트
     //private TextView resetBtn; //초기화 버튼
@@ -64,7 +67,7 @@ public class Game1MainActivity extends AppCompatActivity implements View.OnClick
     public void init() throws IOException, JSONException {
         //리스트에 데이터 등록
         AssetManager assetManager = this.getAssets();
-        InputStream is = assetManager.open("jsons/contacts.json");
+        InputStream is = assetManager.open("jsons/day1.json");
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 
@@ -81,13 +84,31 @@ public class Game1MainActivity extends AppCompatActivity implements View.OnClick
 
         for(int i=0; i<jsonArray.length(); i++) {
             JSONObject jo = jsonArray.getJSONObject(i);
-            String name = jo.getString("Name");
-            String phone = jo.getString("tel");
+            String word = jo.getString("val2");
+            String meaning = jo.getString("val3");
 
-            wordList.add(name);
-            meaningList.add(phone);
-            originalWordList.add(name);
-            originalMeaningList.add(phone);
+            //인덱스가 같으면 뜻, 단어 매치
+            thirtyWordList.add(word);
+            thirtyMeaningList.add(meaning);
+        }
+
+        //인덱스 번호 5개 고르기(30개 중)
+        Random rnd = new Random();
+        int[] idx = new int[5];
+        for(int i=0; i<5; i++) {
+            idx[i]=rnd.nextInt(30)+1;
+            for(int j=0; j<i; j++) {
+                if(idx[i]==idx[j]) {
+                    i--;
+                }
+            }
+        }
+
+        for(int i=0; i<5; i++) {
+            wordList.add(thirtyWordList.get(idx[i]));
+            meaningList.add(thirtyMeaningList.get(idx[i]));
+            originalWordList.add(thirtyWordList.get(idx[i]));
+            originalMeaningList.add(thirtyMeaningList.get(idx[i]));
         }
 
         //순서 섞기
@@ -233,7 +254,7 @@ public class Game1MainActivity extends AppCompatActivity implements View.OnClick
 
     private int returnIndex(int position) {
         String tmp = cards.get(position).getImageId();
-        if(originalWordList.contains(tmp)) { return wordList.indexOf(tmp); }
+        if(originalWordList.contains(tmp)) { return originalWordList.indexOf(tmp); }
         else { return originalMeaningList.indexOf(tmp); }
     }
 
