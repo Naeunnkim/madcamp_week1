@@ -23,10 +23,20 @@ public class WordGameActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24);
 
         Button game1 = (Button) findViewById(R.id.game1);
+        Button game2 = (Button) findViewById(R.id.game2);
+        Button game3 = (Button) findViewById(R.id.game3);
         game1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(WordGameActivity.this, Game1MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        game3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WordGameActivity.this, Game3SelectActivity.class);
                 startActivity(intent);
             }
         });
