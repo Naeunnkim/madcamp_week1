@@ -46,10 +46,10 @@ public class WordLearningSelectedActivity extends AppCompatActivity {
         ArrayList<String> koreanDataSet = new ArrayList<>();
 
         String day = getIntent().getStringExtra("day");
-        String jsonName = "jsons/word_learn_" + day;
+        String jsonName = "jsons/" + day + ".json";
 
         AssetManager assetManager = getAssets();
-        InputStream is = assetManager.open("jsons/contacts.json");
+        InputStream is = assetManager.open(jsonName);
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 
@@ -66,10 +66,10 @@ public class WordLearningSelectedActivity extends AppCompatActivity {
 
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject jo = jsonArray.getJSONObject(i);
-            String name = jo.getString("Name");
-            String phone = jo.getString("tel");
-            englishDataSet.add(name);
-            koreanDataSet.add(phone);
+            String english_word = jo.getString("val2");
+            String korean_word = jo.getString("val3");
+            englishDataSet.add(english_word);
+            koreanDataSet.add(korean_word);
         }
 
         RecyclerView recyclerView = findViewById(R.id.word_learning_recyclerview);
