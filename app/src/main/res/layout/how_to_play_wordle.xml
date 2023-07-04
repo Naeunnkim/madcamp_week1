@@ -26,7 +26,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:layout_gravity="start"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:text="6번의 시도 내에 단어를 찾아내세요!"
                 android:textSize="20sp"
                 />
@@ -35,7 +36,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:layout_gravity="start"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:text="각 시도는 유효한 5글자 단어여야 합니다."
                 android:textSize="20sp"
                 />
@@ -45,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:text="각 시도 후에, 타일의 색상이 정답 단어에 얼마나 가까운지 알려줍니다."
                 android:textSize="20sp"
                 />
@@ -133,6 +136,7 @@
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:layout_gravity="center"
+            android:gravity="center"
             android:text="R은 정답에 포함되고 올바른 위치에 있습니다."
             android:textSize="15sp"
             />
@@ -208,6 +212,7 @@
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:layout_gravity="center"
+            android:gravity="center"
             android:text="I는 단어에 포함되지만 잘못된 위치에 있습니다."
             android:textSize="15sp"
             />
@@ -283,6 +288,7 @@
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:layout_gravity="center"
+            android:gravity="center"
             android:text="K는 어디에도 포함되지 않습니다."
             android:textSize="15sp"
             />

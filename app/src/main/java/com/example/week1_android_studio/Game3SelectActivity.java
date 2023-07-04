@@ -430,15 +430,9 @@ public class Game3SelectActivity extends AppCompatActivity{
     private void passFocusToNextEdt(EditText editText1, EditText editText2){
         editText1.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
             @Override
             public void afterTextChanged(Editable editable) {
                 if (editable.length() == 1){
@@ -456,7 +450,6 @@ public class Game3SelectActivity extends AppCompatActivity{
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.wordle_help_menu, menu);
-
         return true;
     }
     @Override
