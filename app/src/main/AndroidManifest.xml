@@ -32,6 +32,7 @@
         <activity android:name=".WordLearningSelectedActivity"/>
         <activity android:name=".WordGameActivity"/>
         <activity android:name=".Game1MainActivity"/>
+        <activity android:name=".Game1SelectActivity"/>
     </application>
 
 </manifest>
