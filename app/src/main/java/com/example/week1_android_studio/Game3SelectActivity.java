@@ -1,5 +1,6 @@
 package com.example.week1_android_studio;
 
+import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,14 +13,75 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class Game3SelectActivity extends AppCompatActivity{
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-    private String WORD = "dubai";
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Game3SelectActivity extends AppCompatActivity{
+    private String WORD;
+    private String MEAN;
+
+    private String[] getWord() throws IOException, JSONException {
+        ArrayList<String> englishDataSet = new ArrayList<>();
+        ArrayList<String> koreanDataSet = new ArrayList<>();
+
+        String[] eng_kor = new String[2];
+
+//        String day = getIntent().getStringExtra("day");
+//        String jsonName = "jsons/" + day + ".json";
+
+        AssetManager assetManager = getAssets();
+        InputStream is = assetManager.open("jsons/wordle.json");
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+
+        StringBuilder buffer = new StringBuilder();
+        String line = reader.readLine();
+        while (line != null) {
+            buffer.append(line + "\n");
+            line = reader.readLine();
+        }
+
+        String jsonData = buffer.toString();
+
+        JSONArray jsonArray = new JSONArray(jsonData);
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject jo = jsonArray.getJSONObject(i);
+            String english_word = jo.getString("val0");
+            String korean_word = jo.getString("val2");
+            englishDataSet.add(english_word);
+            koreanDataSet.add(korean_word);
+        }
+
+        Random random = new Random();
+        int randomIndex = random.nextInt(englishDataSet.size());
+        eng_kor[0] = englishDataSet.get(randomIndex);
+        eng_kor[1] = koreanDataSet.get(randomIndex);
+        return eng_kor;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game3_play_layout);
+
+        try {
+            String[] word_mean = getWord();
+            WORD = word_mean[0];
+            MEAN = word_mean[1];
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
 
         Toolbar mToolbar = findViewById(R.id.game3_toolbar);
         setSupportActionBar(mToolbar);
@@ -269,7 +331,7 @@ public class Game3SelectActivity extends AppCompatActivity{
 
         if (edt1Cha == c1 && edt2Cha == c2 && edt3Cha == c3 && edt4Cha == c4 && edt5Cha == c5){
             TextView endTextView = findViewById(R.id.id_ending_text);
-            String message = "축하합니다! 정답입니다!";
+            String message = "축하합니다! 뜻은 " + MEAN + "입니다!";
             endTextView.setText(message);
             endTextView.setVisibility(View.VISIBLE);
             makeGameInactive();
@@ -372,6 +434,9 @@ public class Game3SelectActivity extends AppCompatActivity{
                 if (editable.length() == 1){
                     editText2.setEnabled(true);
                     editText2.requestFocus();
+                }
+                if (editable.length() == 0){
+                    editText2.setEnabled(false);
                 }
             }
         });

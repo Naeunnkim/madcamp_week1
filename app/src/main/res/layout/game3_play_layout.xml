@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:gravity="center"
         android:padding="10dp"
         android:text="Wordle"
@@ -472,11 +472,10 @@
         android:layout_gravity="center"
         android:layout_margin="8dp"
         android:padding="8dp"
-        android:text="Congratulation"
+        android:text="정답을 맞히면 단어 뜻이??"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="22sp"
-        android:textStyle="normal"
-        android:visibility="gone" />
+        android:textStyle="normal"/>
 
 </RelativeLayout>

@@ -44,7 +44,7 @@
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:text="게임3"
+            android:text="Wordle"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="50dp"
             android:backgroundTint="@color/white"
