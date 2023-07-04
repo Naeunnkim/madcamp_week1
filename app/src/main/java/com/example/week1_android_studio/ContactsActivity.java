@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,7 +34,7 @@ public class ContactsActivity extends AppCompatActivity {
 
         Button call_btn = (Button) findViewById(R.id.phone_call);
         Button message_btn = (Button) findViewById(R.id.message);
-        Button favorites_btn = (Button) findViewById(R.id.email);
+        Button email_btn = (Button) findViewById(R.id.email);
 
         Intent intent = getIntent();
 
@@ -67,6 +66,17 @@ public class ContactsActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 String tel_info = "smsto:".concat(number);
                 intent.setData(Uri.parse(tel_info));
+                startActivity(intent);
+            }
+        });
+
+        email_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("plain/text");
+                String[] address = {email};
+                intent.putExtra(Intent.EXTRA_EMAIL, address);
                 startActivity(intent);
             }
         });
