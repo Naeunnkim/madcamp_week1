@@ -29,6 +29,7 @@
         <activity android:name=".ContactsFragment" />
         <activity android:name=".ContactsAddPerson"/>
         <activity android:name=".WordLearningActivity"/>
+        <activity android:name=".WordLearningSelectedActivity"/>
         <activity android:name=".WordGameActivity"/>
         <activity android:name=".Game1MainActivity"/>
     </application>

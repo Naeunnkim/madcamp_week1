@@ -1,31 +1,26 @@
 package com.example.week1_android_studio;
 
-import android.content.res.AssetManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 
-public class WordLearningActivity extends AppCompatActivity {
+public class WordLearningActivity extends AppCompatActivity implements View.OnClickListener {
+    private Button[] day_buttons = new Button[30];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.word_learning_page);
+        setContentView(R.layout.word_learning_select_button);
 
-        Toolbar mToolbar = findViewById(R.id.word_learning_toolbar);
+        Toolbar mToolbar = findViewById(R.id.word_learning_day_toolbar);
         setSupportActionBar(mToolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -33,7 +28,7 @@ public class WordLearningActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24);
 
         try {
-            initUI();
+            init();
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (JSONException e) {
@@ -41,42 +36,13 @@ public class WordLearningActivity extends AppCompatActivity {
         }
     }
 
-    private void initUI() throws IOException, JSONException {
-        ArrayList<String> englishDataSet = new ArrayList<>();
-        ArrayList<String> koreanDataSet = new ArrayList<>();
-
-        AssetManager assetManager = getAssets();
-        InputStream is = assetManager.open("jsons/contacts.json");
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-
-        StringBuilder buffer = new StringBuilder();
-        String line = reader.readLine();
-        while (line != null) {
-        buffer.append(line + "\n");
-            line = reader.readLine();
-        }
-
-        String jsonData = buffer.toString();
-
-        JSONArray jsonArray = new JSONArray(jsonData);
-
-        for (int i = 0; i < jsonArray.length(); i++) {
-            JSONObject jo = jsonArray.getJSONObject(i);
-            String name = jo.getString("Name");
-            String phone = jo.getString("tel");
-            englishDataSet.add(name);
-            koreanDataSet.add(phone);
-        }
-
-        RecyclerView recyclerView = findViewById(R.id.word_learning_recyclerview);
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-
-        WordLearningAdapter wordLearningAdapter = new WordLearningAdapter(englishDataSet, koreanDataSet);
-
-        recyclerView.setAdapter(wordLearningAdapter);
+    private void init() throws IOException, JSONException {
+        for(int i = 0; i < day_buttons.length; i++) {
+            String buttonID = "day_button"+i;
+            int resourceID = getResources().getIdentifier(buttonID,  "id", getPackageName());
+            day_buttons[i] = findViewById(resourceID);
+            day_buttons[i].setOnClickListener(this);
+            }
     }
 
     @Override
@@ -89,4 +55,76 @@ public class WordLearningActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        String day = "day1";
+
+        if (id == R.id.day_button0) {
+            day = "day1";
+        } else if (id == R.id.day_button1) {
+            day = "day2";
+        } else if (id == R.id.day_button2) {
+            day = "day3";
+        } else if (id == R.id.day_button3) {
+            day = "day4";
+        } else if (id == R.id.day_button4) {
+            day = "day5";
+        } else if (id == R.id.day_button5) {
+            day = "day6";
+        } else if (id == R.id.day_button6) {
+            day = "day7";
+        } else if (id == R.id.day_button7) {
+            day = "day8";
+        } else if (id == R.id.day_button8) {
+            day = "day9";
+        } else if (id == R.id.day_button9) {
+            day = "day10";
+        } else if (id == R.id.day_button10) {
+            day = "day11";
+        } else if (id == R.id.day_button11) {
+            day = "day12";
+        } else if (id == R.id.day_button12) {
+            day = "day13";
+        } else if (id == R.id.day_button13) {
+            day = "day14";
+        } else if (id == R.id.day_button14) {
+            day = "day15";
+        } else if (id == R.id.day_button15) {
+            day = "day16";
+        } else if (id == R.id.day_button16) {
+            day = "day17";
+        } else if (id == R.id.day_button17) {
+            day = "day18";
+        } else if (id == R.id.day_button18) {
+            day = "day19";
+        } else if (id == R.id.day_button19) {
+            day = "day20";
+        } else if (id == R.id.day_button20) {
+            day = "day21";
+        } else if (id == R.id.day_button21) {
+            day = "day22";
+        } else if (id == R.id.day_button22) {
+            day = "day23";
+        } else if (id == R.id.day_button23) {
+            day = "day24";
+        } else if (id == R.id.day_button24) {
+            day = "day25";
+        } else if (id == R.id.day_button25) {
+            day = "day26";
+        } else if (id == R.id.day_button26) {
+            day = "day27";
+        } else if (id == R.id.day_button27) {
+            day = "day28";
+        } else if (id == R.id.day_button28) {
+            day = "day29";
+        } else if (id == R.id.day_button29) {
+            day = "day30";
+        }
+        Intent intent = new Intent(getApplicationContext(), WordLearningSelectedActivity.class);
+        intent.putExtra("day", day);
+        startActivity(intent);
+    }
 }
+
+

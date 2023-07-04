@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/word_learning_day_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6850a4"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button0"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day01"
+                        android:textSize="30dp"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button1"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day02"
+                        android:textSize="30dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button2"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day03"
+                        android:textSize="30dp"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button3"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day04"
+                        android:textSize="30dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button4"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day05"
+                        android:textSize="30dp"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button5"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day06"
+                        android:textSize="30dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button6"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day07"
+                        android:textSize="30dp"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button7"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day08"
+                        android:textSize="30dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button8"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day09"
+                        android:textSize="30dp"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button9"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day10"
+                        android:textSize="30dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button10"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day11"
+                        android:textSize="30dp"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button11"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day12"
+                        android:textSize="30dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button12"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day13"
+                        android:textSize="30dp"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button13"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day14"
+                        android:textSize="30dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button14"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day15"
+                        android:textSize="30dp"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button15"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day16"
+                        android:textSize="30dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button16"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day17"
+                        android:textSize="30dp"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button17"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day18"
+                        android:textSize="30dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button18"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day19"
+                        android:textSize="30dp"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button19"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day20"
+                        android:textSize="30dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button20"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day21"
+                        android:textSize="30dp"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button21"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day22"
+                        android:textSize="30dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button22"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day23"
+                        android:textSize="30dp"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button23"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day24"
+                        android:textSize="30dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button24"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day25"
+                        android:textSize="30dp"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button25"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day26"
+                        android:textSize="30dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button26"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day27"
+                        android:textSize="30dp"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button27"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day28"
+                        android:textSize="30dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button28"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day29"
+                        android:textSize="30dp"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/day_button29"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/word_learning_select_round_button"
+                        android:text="Day30"
+                        android:textSize="30dp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
