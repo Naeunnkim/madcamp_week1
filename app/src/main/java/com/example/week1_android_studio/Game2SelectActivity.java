@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -18,10 +19,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Game2SelectActivity extends AppCompatActivity implements View.OnClickListener{
     private ArrayList<Game2Question> questionList;
+    private ArrayList<String> wordList = new ArrayList<>();
+    private ArrayList<String> meaningList = new ArrayList<>();
     private int currentPosition =1; //질문 위치
     private int selectedOption =0; //선택 옵션
     private int score =0; //점수
@@ -56,8 +68,17 @@ public class Game2SelectActivity extends AppCompatActivity implements View.OnCli
         option4 = findViewById(R.id.option4_text);
         submitBtn = findViewById(R.id.submit_btn);
 
+        String day = getIntent().getStringExtra("day");
+        String jsonName = "jsons/" + day + ".json";
+
         //질문 리스트 가져오기
-        questionList = Game2QuestionData.getQuestion();
+        try {
+            questionList = getQuestion(jsonName);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
 
         //화면 세팅
         getQuestionData();
@@ -77,17 +98,15 @@ public class Game2SelectActivity extends AppCompatActivity implements View.OnCli
                     //정답 체크
                     if (selectedOption != question.getCorrect_answer()) {
                         setColor(selectedOption, R.drawable.wrong_option_background);
-                        callDialog("오답", question.getCorrect_answer()+"번");
                     } else { //정답인 경우
-                        callDialog("정답", "맞았습니");
                         score++;
                     }
                     setColor(question.getCorrect_answer(), R.drawable.correct_option_background);
 
                     if (currentPosition == questionList.size()) {
-                        submitBtn.setText(getString(R.string.submit, "끝"));
+                        submitBtn.setText(getString(R.string.submit, "게임 종료"));
                     } else {
-                        submitBtn.setText(getString(R.string.submit, "다음"));
+                        submitBtn.setText(getString(R.string.submit, "다음 문제"));
                     }
                 } else {
                     // 위치 값 상승
@@ -108,6 +127,88 @@ public class Game2SelectActivity extends AppCompatActivity implements View.OnCli
         });
     }
 
+    public ArrayList<Game2Question> getQuestion(String jsonPath) throws IOException, JSONException {
+        AssetManager assetManager = this.getAssets();
+
+        InputStream is = assetManager.open(jsonPath);
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+
+        StringBuffer buffer = new StringBuffer();
+        String line = reader.readLine();
+        while(line!=null) {
+            buffer.append(line + "\n");
+            line = reader.readLine();
+        }
+
+        String jsonData = buffer.toString();
+
+        JSONArray jsonArray = new JSONArray(jsonData);
+
+        for(int i=0; i<jsonArray.length(); i++) {
+            JSONObject jo = jsonArray.getJSONObject(i);
+            String word = jo.getString("val2");
+            String meaning = jo.getString("val3");
+
+            //인덱스가 같으면 뜻, 단어 매치
+            wordList.add(word);
+            meaningList.add(meaning);
+        }
+
+        Random rnd = new Random();
+        ArrayList<Game2Question> queList = new ArrayList<>();
+
+        for(int i=0; i<10; i++) {
+            int answer_idx = rnd.nextInt(30); //정답에 해당하는 인덱스
+            int correct_answer = rnd.nextInt(4)+1; //정답이 들어갈 보기 번호
+            String question = meaningList.get(answer_idx);
+            String option_one="", option_two="", option_three="", option_four="";
+
+            //나머지 자리에 나머지 단어 넣기
+            //나머지 단어들 선정
+            int[] idxs = new int[3];
+            for(int j=0; j<3; j++) {
+                idxs[j] = rnd.nextInt(30);
+                if(idxs[j]==answer_idx) { j--; }
+                for(int k=0; k<j; k++) {
+                    if(idxs[j]==idxs[k]) { j--; }
+                }
+            }
+
+            //선지에 단어 넣기
+            if(correct_answer==1) {
+                option_one=wordList.get(answer_idx);
+                option_two=wordList.get(idxs[0]);
+                option_three=wordList.get(idxs[1]);
+                option_four=wordList.get(idxs[2]);
+            }
+            else if(correct_answer==2) {
+                option_two=wordList.get(answer_idx);
+                option_one=wordList.get(idxs[0]);
+                option_three=wordList.get(idxs[1]);
+                option_four=wordList.get(idxs[2]);
+            }
+            else if(correct_answer==3) {
+                option_three=wordList.get(answer_idx);
+                option_one=wordList.get(idxs[0]);
+                option_two=wordList.get(idxs[1]);
+                option_four=wordList.get(idxs[2]);
+            }
+            else if(correct_answer==4) {
+                option_four=wordList.get(answer_idx);
+                option_one=wordList.get(idxs[0]);
+                option_two=wordList.get(idxs[1]);
+                option_three=wordList.get(idxs[2]);
+            }
+
+            Game2Question q = new Game2Question(i,question, option_one, option_two,
+                    option_three, option_four, correct_answer);
+            queList.add(q);
+        }
+
+        return queList;
+    }
+
     private void setColor(int opt, int color) {
         if(opt==1) {
             option1.setBackground(ContextCompat.getDrawable(this, color));
@@ -124,25 +225,11 @@ public class Game2SelectActivity extends AppCompatActivity implements View.OnCli
 
     }
 
-    private void callDialog(String alertTitle, String correctAnswer) {
-        new AlertDialog.Builder(this)
-                .setTitle(alertTitle)
-                .setMessage("정답: " + correctAnswer)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                })
-                .setCancelable(false)
-                .show();
-    }
-
     //툴바 뒤로가기
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+            case android.R.id.home:{
                 finish();
                 return true;
             }
@@ -167,7 +254,7 @@ public class Game2SelectActivity extends AppCompatActivity implements View.OnCli
         option3.setText(question.getOption_three());
         option4.setText(question.getOption_four());
 
-        setSubmitBtn("제출");
+        setSubmitBtn("정답 확인");
     }
 
     private void setSubmitBtn(String name) {
@@ -184,7 +271,7 @@ public class Game2SelectActivity extends AppCompatActivity implements View.OnCli
         optionList.add(option4);
 
         for(Button op : optionList) {
-            op.setTextColor(Color.parseColor("#FFFFFFFF"));
+            op.setTextColor(Color.parseColor("#000000"));
             op.setBackground(ContextCompat.getDrawable(this, R.drawable.option_background));
             op.setTypeface(Typeface.DEFAULT_BOLD);
         }
