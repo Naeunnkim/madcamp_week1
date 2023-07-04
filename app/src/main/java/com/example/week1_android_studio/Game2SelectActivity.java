@@ -27,6 +27,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -114,11 +115,11 @@ public class Game2SelectActivity extends AppCompatActivity implements View.OnCli
                     if (currentPosition <= questionList.size()) {
                         getQuestionData();
                     } else {
-//                        // 결과 액티비티로 이동하는 코드
-//                        Intent intent = new Intent(~~);
-//                        intent.putExtra("score", score);
-//                        intent.putExtra("totalSize", questionList.size());
-//                        startActivity(intent);
+                        // 결과 액티비티로 이동하는 코드
+                        Intent intent = new Intent(Game2SelectActivity.this, Game2ScoreActivity.class);
+                        intent.putExtra("score", score);
+                        intent.putExtra("totalSize", questionList.size());
+                        startActivity(intent);
                         finish();
                     }
                 }
@@ -157,9 +158,16 @@ public class Game2SelectActivity extends AppCompatActivity implements View.OnCli
 
         Random rnd = new Random();
         ArrayList<Game2Question> queList = new ArrayList<>();
+        int[] answerlist = new int[10]; //정답 10개 미리 뽑아두기
+        for(int i=0; i<10; i++) {
+            answerlist[i]=rnd.nextInt(30);
+            for(int j=0; j<i; j++) {
+                if(answerlist[i]==answerlist[j]) { i--; }
+            }
+        }
 
         for(int i=0; i<10; i++) {
-            int answer_idx = rnd.nextInt(30); //정답에 해당하는 인덱스
+            int answer_idx = answerlist[i]; //정답에 해당하는 인덱스
             int correct_answer = rnd.nextInt(4)+1; //정답이 들어갈 보기 번호
             String question = meaningList.get(answer_idx);
             String option_one="", option_two="", option_three="", option_four="";

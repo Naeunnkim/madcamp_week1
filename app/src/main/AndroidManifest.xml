@@ -35,6 +35,7 @@
         <activity android:name=".Game1SelectActivity"/>
         <activity android:name=".Game2MainActivity"/>
         <activity android:name=".Game2SelectActivity"/>
+        <activity android:name=".Game2ScoreActivity"/>
         <activity android:name=".Game3SelectActivity"/>
     </application>
 
