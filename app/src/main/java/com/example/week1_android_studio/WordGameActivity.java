@@ -33,6 +33,14 @@ public class WordGameActivity extends AppCompatActivity {
             }
         });
 
+        game2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WordGameActivity.this, Game2MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
         game3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

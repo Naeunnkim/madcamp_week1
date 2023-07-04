@@ -33,6 +33,8 @@
         <activity android:name=".WordGameActivity"/>
         <activity android:name=".Game1MainActivity"/>
         <activity android:name=".Game1SelectActivity"/>
+        <activity android:name=".Game2MainActivity"/>
+        <activity android:name=".Game2SelectActivity"/>
         <activity android:name=".Game3SelectActivity"/>
     </application>
 
