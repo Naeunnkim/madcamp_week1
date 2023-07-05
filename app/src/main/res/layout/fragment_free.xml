@@ -17,23 +17,27 @@
             android:id="@+id/button1"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:backgroundTint="#FFFFFFFF"
-            android:textColor="@color/black"
             android:layout_gravity="center"
-            android:text="단어 학습"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="225dp"
+            android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:layout_marginTop="225dp"/>
+            android:backgroundTint="#FFFFFFFF"
+            android:text="단어 학습"
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:backgroundTint="#FFFFFFFF"
-            android:textColor="@color/black"
             android:layout_gravity="center"
-            android:text="게임 시작"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="225dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:layout_marginTop="225dp"/>
+            android:backgroundTint="#FFFFFFFF"
+            android:text="게임 시작"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
