@@ -25,7 +25,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ContactsActivity" />
-        <activity android:name=".ContactsFragment" />
         <activity android:name=".ContactsAddPerson"/>
         <activity android:name=".WordLearningActivity"/>
         <activity android:name=".WordLearningSelectedActivity"/>
