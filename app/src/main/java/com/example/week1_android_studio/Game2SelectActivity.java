@@ -93,14 +93,26 @@ public class Game2SelectActivity extends AppCompatActivity implements View.OnCli
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                option1.setEnabled(true);
+                option2.setEnabled(true);
+                option3.setEnabled(true);
+                option4.setEnabled(true);
                 if (selectedOption != 0) {
                     Game2Question question = questionList.get(currentPosition - 1);
 
                     //정답 체크
                     if (selectedOption != question.getCorrect_answer()) {
                         setColor(selectedOption, R.drawable.wrong_option_background);
+                        option1.setEnabled(false);
+                        option2.setEnabled(false);
+                        option3.setEnabled(false);
+                        option4.setEnabled(false);
                     } else { //정답인 경우
                         score++;
+                        option1.setEnabled(false);
+                        option2.setEnabled(false);
+                        option3.setEnabled(false);
+                        option4.setEnabled(false);
                     }
                     setColor(question.getCorrect_answer(), R.drawable.correct_option_background);
 

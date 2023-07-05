@@ -3,27 +3,56 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:layout_gravity="center"
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/score_toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="결과"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:background="#6850a4"/>
 
-    <TextView
-        android:id="@+id/score_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal" >
 
-    <Button
-        android:id="@+id/reset_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="다시 하기"
-        android:textSize="20sp" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="결과"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/score_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/reset_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="다시 하기"
+                android:textSize="20sp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
 </LinearLayout>
