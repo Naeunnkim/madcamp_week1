@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">week1_android_studio</string>
+    <string name="app_name">Bunny</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="question">질문</string>
