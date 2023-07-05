@@ -17,8 +17,8 @@ Android Studio와 Git을 활용한 협업에 익숙해지는 것이 궁극적인
 
 <br/>
 
-##어플리케이션 소개(Application Introduction)
+## 어플리케이션 소개(Application Introduction)
 ***
 
-###Tab 1
+### Tab 1
 연락처 기능을 구현한 탭으로, 첫 화면에는 프로필 사진과 이름, 누르면 전화가 가는 통화 버튼이 포함된 연락처의 목록이 표시된다.
