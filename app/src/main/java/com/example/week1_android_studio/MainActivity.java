@@ -81,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
 
         String jsonData = buffer.toString();
 
+        is.close();
+
         JSONArray jsonArray = new JSONArray(jsonData);
 
         JSONArray new_jsonArray = new JSONArray();

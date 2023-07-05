@@ -39,6 +39,9 @@ public class Game3SelectActivity extends AppCompatActivity{
     private String[] getWord() throws IOException, JSONException {
         String[] eng_kor = new String[2];
 
+        englishDataSet = new ArrayList<>();
+        koreanDataSet = new ArrayList<>();
+
 //        String day = getIntent().getStringExtra("day");
 //        String jsonName = "jsons/" + day + ".json";
 

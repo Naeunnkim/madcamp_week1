@@ -8,7 +8,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -118,6 +117,8 @@ public class ContactsFragment extends Fragment {
             line = reader.readLine();
         }
 
+        is.close();
+
         String jsonData = buffer.toString();
 
         JSONArray jsonArray = new JSONArray(jsonData);
@@ -133,7 +134,7 @@ public class ContactsFragment extends Fragment {
             emailDataSet.add(email_address);
             galleryDataSet.add(image_path);
         }
-        Toast.makeText(getActivity(), "" + nameDataSet.size(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(), "" + nameDataSet.size(), Toast.LENGTH_SHORT).show();
 
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
 

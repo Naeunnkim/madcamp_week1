@@ -6,7 +6,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -14,10 +13,8 @@ import androidx.appcompat.widget.Toolbar;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 
 public class ContactsAddPerson extends AppCompatActivity {
     @Override
@@ -51,20 +48,8 @@ public class ContactsAddPerson extends AppCompatActivity {
             EditText nameEditText = (EditText) findViewById(R.id.name_edittext);
             EditText numberEditText = (EditText) findViewById(R.id.number_edittext);
             EditText emailEditText = (EditText) findViewById(R.id.email_edittext);
-
-//            File file = new File(getApplication().getFilesDir(), "contactsInfo.json");
-//            if (file.exists()){
-//                Toast.makeText(getApplicationContext(), "이이이이이이", Toast.LENGTH_LONG).show();
-//                try {
-//                    FileOutputStream os = openFileOutput("contactsInfo.json", Context.MODE_APPEND);
-//                    os.close();
-//                } catch (FileNotFoundException e) {
-//                    throw new RuntimeException(e);
-//                }
-//            }
             try{
                 FileOutputStream os = openFileOutput("contactsInfo.json", Context.MODE_APPEND);
-                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os));
                 JSONObject jsonObject = new JSONObject();
 
                 jsonObject.put("name", nameEditText.getText().toString());
@@ -73,10 +58,9 @@ public class ContactsAddPerson extends AppCompatActivity {
                 jsonObject.put("pic", "");
 
                 String str = jsonObject.toString();
-
-                writer.write(str);
-                Toast.makeText(getApplicationContext(), "" + str.toString(), Toast.LENGTH_LONG).show();
-                writer.close();
+//                Toast.makeText(getApplicationContext(), "" + str, Toast.LENGTH_LONG).show();
+                os.write(str.getBytes());
+                os.flush();
                 os.close();
             }
             catch (IOException e) {e.printStackTrace();} catch (JSONException e) {
