@@ -22,7 +22,12 @@ Android Studio와 Git을 활용한 협업에 익숙해지는 것이 궁극적인
 
 ### Tab 1 - 연락처
 #### 기능 설명
+<p>
 ![Screenshot_20230705_175704](https://github.com/Naeunnkim/madcamp_week1/assets/128071056/0a7efe3b-8171-4a8a-9bc3-b7effdb086b9)
+![Screenshot_20230705_175745](https://github.com/Naeunnkim/madcamp_week1/assets/128071056/c5bb4c7e-b385-464b-8001-011728e4e5ce)
+![Screenshot_20230705_175805](https://github.com/Naeunnkim/madcamp_week1/assets/128071056/5295a7be-ee34-45b8-879f-246186fac4c0)
+  
+</p>
 
 - 프로필사진, 이름, 누르면 다이얼로 이동하는 통화 버튼이 포함된 연락처 목록을 RecyclerView를 활용하여 구현하였다.
 - 각각의 연락처를 클릭하면 프로필사진과 이름, 전화번호, 이메일을 표시하는 상세정보 페이지로 이동한다. 각각의 통화, 문자, 이메일 버튼은 클릭시 해당 어플리케이션으로 이동하여 통화 발신과 문자 및 이메일 전송의 기능을 수행한다.
