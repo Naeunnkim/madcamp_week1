@@ -31,23 +31,23 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/imageBtn0"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@android:color/white"
-                android:src="@drawable/question"/>
+                android:src="@drawable/question_img"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/imageBtn1"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@android:color/white"
-                android:src="@drawable/question"/>
+                android:src="@drawable/question_img"/>
         </LinearLayout>
 
         <LinearLayout
@@ -55,23 +55,23 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/imageBtn2"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@android:color/white"
-                android:src="@drawable/question"/>
+                android:src="@drawable/question_img"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/imageBtn3"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@android:color/white"
-                android:src="@drawable/question"/>
+                android:src="@drawable/question_img"/>
         </LinearLayout>
 
         <LinearLayout
@@ -79,23 +79,23 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/imageBtn4"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@android:color/white"
-                android:src="@drawable/question"/>
+                android:src="@drawable/question_img"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/imageBtn5"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@android:color/white"
-                android:src="@drawable/question"/>
+                android:src="@drawable/question_img"/>
         </LinearLayout>
 
         <LinearLayout
@@ -103,23 +103,23 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/imageBtn6"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@android:color/white"
-                android:src="@drawable/question"/>
+                />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/imageBtn7"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@android:color/white"
-                android:src="@drawable/question"/>
+                android:src="@drawable/question_img"/>
         </LinearLayout>
 
         <LinearLayout
@@ -127,23 +127,23 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/imageBtn8"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@android:color/white"
-                android:src="@drawable/question"/>
+                android:src="@drawable/question_img"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/imageBtn9"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@android:color/white"
-                android:src="@drawable/question"/>
+                android:src="@drawable/question_img"/>
         </LinearLayout>
     </LinearLayout>
 

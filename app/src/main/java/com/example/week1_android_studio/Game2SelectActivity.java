@@ -279,6 +279,7 @@ public class Game2SelectActivity extends AppCompatActivity implements View.OnCli
 
     private void setSubmitBtn(String name) {
         submitBtn.setText(getString(R.string.submit, name));
+        submitBtn.setEnabled(false);
     }
 
     //답변 스타일 설정
@@ -301,6 +302,7 @@ public class Game2SelectActivity extends AppCompatActivity implements View.OnCli
     private void selectedOptionStyle(Button btn, int opt) {
         setOptionStyle();
         selectedOption = opt;
+        submitBtn.setEnabled(true);
 
         btn.setTextColor((Color.parseColor("#5F00FF")));
         btn.setBackground(ContextCompat.getDrawable(this, R.drawable.selected_option_background));

@@ -133,7 +133,7 @@ public class Game1SelectActivity extends AppCompatActivity implements View.OnCli
             }
 
             //기본 이미지로 변경
-            buttons[i].setBackgroundResource(R.drawable.question);
+            buttons[i].setBackgroundResource(R.drawable.question_img);
 
             buttons[i].setAlpha(1.0f);
         }
