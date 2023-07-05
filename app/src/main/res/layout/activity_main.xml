@@ -14,7 +14,6 @@
         android:layout_weight="1">
     </FrameLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
-
         android:id="@+id/bottom_navigationview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +21,10 @@
         app:labelVisibilityMode="labeled"
         app:itemBackground="@color/white"
         app:menu="@menu/bottom_menu"
+        app:itemIconTint="@drawable/bottom_menu_select_color"
+        app:itemTextColor="@drawable/bottom_menu_select_color"
+        app:backgroundTint="#808080"
+        app:layout_constraintBottom_toBottomOf = "parent"
         />
 
 </LinearLayout>
