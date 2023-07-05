@@ -61,6 +61,13 @@ Android Studio와 Git을 활용한 협업에 익숙해지는 것이 궁극적인
 ***
 
 ### Tab 3 - 단어장
+<p>
+  <img src="https://github.com/Naeunnkim/madcamp_week1/assets/128071056/e75d4043-528c-4ae2-9be8-ab6a8f856bf4" height="32%" width="32%">
+  <img src="https://github.com/Naeunnkim/madcamp_week1/assets/128071056/0c959ade-a809-448e-8276-8e481ad3347f" height="32%" width="32%">
+  <img src="https://github.com/Naeunnkim/madcamp_week1/assets/128071056/5e811508-e93f-4bf7-b704-c2f18504fae3" height="32%" width="32%">
+  <br><br><br>
+</p>
+
 #### 기능 설명
 - 900여 개의 영단어를 하루 30개씩 30일 간 학습할 수 있도록 구현한 단어장 어플리케이션이다.
 - 단어를 학습하는 Activity와 학습한 단어를 바탕으로 카드 짝 맞추기, 퀴즈 풀기, wordle의 3가지 게임을 제공하는 게임 시작 Activity로 구성되어 있다.
@@ -69,13 +76,34 @@ Android Studio와 Git을 활용한 협업에 익숙해지는 것이 궁극적인
   - 각각의 학습 일자를 선택하면 단어와 그 뜻이 나란히 적힌 목록을 제공한다.
   - 해당 목록은 RecyclerView를 활용한다.
  
+<p>
+  <img src="https://github.com/Naeunnkim/madcamp_week1/assets/128071056/d073106f-8505-4ada-847e-6da83f121e49" height="32%" width="32%>
+  <br>
+</p>
+ 
 - 단어 게임
   - 단어 게임을 클릭하면 카드 짝 맞추기, 퀴즈 풀기, wordle의 3가지 게임 중 하나를 선택할 수 있는 페이지로 이동한다.
+
 ***
+
+<p>
+  <img src="https://github.com/Naeunnkim/madcamp_week1/assets/128071056/07a8a6e8-6996-46c6-9ae5-f88e12f9d47a" height="32%" width="32%">
+  <img src="https://github.com/Naeunnkim/madcamp_week1/assets/128071056/f4445243-fd66-4def-8c31-c1a36d20f943" height="32%" width="32%">
+  <img src="https://github.com/Naeunnkim/madcamp_week1/assets/128071056/9df5fbc7-b1fe-4bc3-8495-4fda305811ee" height="32%" width="32%">
+  <br><br><br><br>
+</p>
+
 - 카드 짝 맞추기
   - 카드 뒷면에 적힌 영단어와 뜻을 맞추는 게임이다.
   - 일자별 단어 데이터에서 임의로 5개의 단어를 선정한다.
   - 2장의 카드를 고를 때 마다 '매치 성공' 혹은 '매치 실패' 메세지를 보여주며, 5쌍의 카드를 모두 올바르게 뒤집은 경우 '게임 종료' 메세지를 띄운다.
+
+<p>
+  <img src="https://github.com/Naeunnkim/madcamp_week1/assets/128071056/a9243703-1a31-476e-9253-402bf6a450b7" height="32%" width="32%">
+  <img src="https://github.com/Naeunnkim/madcamp_week1/assets/128071056/118dc42b-f0d6-4806-aa77-4c7b0014dfad" height="32%" width="32%">
+  <img src="https://github.com/Naeunnkim/madcamp_week1/assets/128071056/d5e08179-5010-499a-a48a-06ea4fcf3218" height="32%" width="32%">
+  <br><br><br>
+</p>
 
 - 퀴즈 풀기
   - 단어의 뜻을 보고 알맞은 영단어를 고르는 게임이다.
@@ -83,6 +111,13 @@ Android Studio와 Git을 활용한 협업에 익숙해지는 것이 궁극적인
   - 답을 고른 뒤 '정답 확인' 버튼을 클릭하면 정답인 경우 해당 단어가 초록색으로 바뀌며, 오답인 경우 빨간색으로 표시한 뒤 정답 단어를 초록색으로 바꾼다. 이후 다음 버튼을 눌러 게임을 진행하는 방식이다.
   - 10문제를 모두 풀면 결과 페이지로 이동해 점수를 표시한다.
   - 문제 진행 과정은 ProgressBar에 표시된다.
+
+<p>
+  <img src="https://github.com/Naeunnkim/madcamp_week1/assets/128071056/a3a855fc-4c1b-4160-a94a-f75e4f46414b" height="32%" width="32%">
+  <img src="https://github.com/Naeunnkim/madcamp_week1/assets/128071056/86d7131d-b989-4f66-a1bd-d3c56be8ce52" height="32%" width="32%">
+  <img src="https://github.com/Naeunnkim/madcamp_week1/assets/128071056/6e5b37c8-14da-4f2e-9e1f-1bf6f96335be" height="32%" width="32%">
+  <br><br><br>
+</p>
 
 - wordle
   - 5개의 알파벳으로 구성된 단어가 무엇인지 6회 안에 맞추는 게임이다.
