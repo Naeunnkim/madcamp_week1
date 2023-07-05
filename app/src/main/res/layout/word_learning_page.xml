@@ -11,7 +11,8 @@
         android:id="@+id/word_learning_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#6850a4"/>
+        android:background="#6850a4"
+        app:titleTextColor="@color/white"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/word_learning_recyclerview"
