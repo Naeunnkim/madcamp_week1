@@ -123,13 +123,6 @@ public class Game3SelectActivity extends AppCompatActivity{
             @Override
             public void afterTextChanged(Editable editable) {
                 if (editable.length() == 1){
-
-//                    String edt1Str = editText1.getText().toString();
-//                    String edt2Str = editText2.getText().toString();
-//                    String edt3Str = editText3.getText().toString();
-//                    String edt4Str = editText4.getText().toString();
-//                    String edt5Str = editText5.getText().toString();
-
                     validateRow(
                             findViewById(R.id.edt_11),
                             findViewById(R.id.edt_12),
@@ -445,6 +438,7 @@ public class Game3SelectActivity extends AppCompatActivity{
             @Override
             public void afterTextChanged(Editable editable) {
                 if (editable.length() == 1){
+//                    editText1.setEnabled(false);
                     editText2.setEnabled(true);
                     editText2.requestFocus();
                 }
@@ -454,6 +448,30 @@ public class Game3SelectActivity extends AppCompatActivity{
             }
         });
     }
+
+//    private void eraseEditText(EditText editText1, EditText editText2){
+//        editText2.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//                if (editable.length() == 0){
+//                    editText2.setOnKeyListener(new View.OnKeyListener() {
+//                        @Override
+//                        public boolean onKey(View view, int i, KeyEvent keyEvent) {
+//                            if (i == keyEvent.KEYCODE_DEL){
+//                                editText1.setEnabled(true);
+//                                editText1.requestFocus();
+//                            }
+//                            return false;
+//                        }
+//                    });
+//                }
+//            }
+//        });
+//    }
 
     private boolean checkValidWord(String word){
         return englishDataSet.contains(word);
