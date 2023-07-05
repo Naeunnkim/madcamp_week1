@@ -46,7 +46,7 @@ public class Game1SelectActivity extends AppCompatActivity implements View.OnCli
         setSupportActionBar(mToolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+//        getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24);
 
         resultText = findViewById(R.id.game1_text);
@@ -133,7 +133,7 @@ public class Game1SelectActivity extends AppCompatActivity implements View.OnCli
             }
 
             //기본 이미지로 변경
-            buttons[i].setBackgroundResource(R.drawable.question_img);
+            buttons[i].setBackgroundResource(R.drawable.button_drawable_background);
 
             buttons[i].setAlpha(1.0f);
         }
@@ -201,11 +201,12 @@ public class Game1SelectActivity extends AppCompatActivity implements View.OnCli
 
         //뒤집었으면 랜덤 이미지로 보여준다
         if(card.isFaceUp()) {
-            buttons[position].setBackgroundResource(R.drawable.button_drawable_background);
+            buttons[position].setBackgroundResource(R.drawable.game_start_button_design);
             buttons[position].setText(cards.get(position).getImageId());
+            buttons[position].setTextSize(20);
         }
         else {
-            buttons[position].setBackgroundResource(R.drawable.button_drawable_background);
+            buttons[position].setBackgroundResource(R.drawable.game_start_button_design);
         }
     }
 
@@ -215,7 +216,7 @@ public class Game1SelectActivity extends AppCompatActivity implements View.OnCli
             //매치되지 않은 것
             if(!cards.get(i).isMatched()) {
                 //이미지 앞으로
-                buttons[i].setBackgroundResource(R.drawable.question);
+                buttons[i].setBackgroundResource(R.drawable.button_drawable_background);
                 buttons[i].setText("");
 
                 //데이터 수정

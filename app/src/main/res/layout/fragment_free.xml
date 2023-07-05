@@ -13,30 +13,34 @@
         android:layout_gravity="center"
         android:orientation="horizontal">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button1"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="225dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:backgroundTint="#FFFFFFFF"
+            android:background="@drawable/game_start_button_design"
             android:text="단어 학습"
+            android:textSize="20dp"
+            android:textStyle="bold"
             android:textColor="@color/black" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button2"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="225dp"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:backgroundTint="#FFFFFFFF"
+            android:background="@drawable/game_start_button_design"
             android:text="게임 시작"
+            android:textSize="20dp"
+            android:textStyle="bold"
             android:textColor="@color/black" />
 
     </LinearLayout>
