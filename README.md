@@ -17,6 +17,14 @@ Android Studio와 Git을 활용한 협업에 익숙해지는 것이 궁극적인
 
 <br/>
 
+## 개발 환경
+- OS: Android(minSdk:21, targetSdk:31)
+- Language: Java
+- IDE: Android Studio
+- Target Device: Galaxy S10E
+
+<br/>
+
 ## 어플리케이션 소개(Application Introduction)
 ***
 
@@ -24,9 +32,10 @@ Android Studio와 Git을 활용한 협업에 익숙해지는 것이 궁극적인
 <p>
   <img src="https://github.com/Naeunnkim/madcamp_week1/assets/128071056/0a7efe3b-8171-4a8a-9bc3-b7effdb086b9" height="32%" width="32%">
   <img src="https://github.com/Naeunnkim/madcamp_week1/assets/128071056/c5bb4c7e-b385-464b-8001-011728e4e5ce" height="32%" width="32%">
-  <img src="https://github.com/Naeunnkim/madcamp_week1/assets/128071056/5295a7be-ee34-45b8-879f-246186fac4c0" height="32%" width="32%>
+  <img src="https://github.com/Naeunnkim/madcamp_week1/assets/128071056/5295a7be-ee34-45b8-879f-246186fac4c0" height="32%" width="32%">
   <br><br><br>
 </p>
+
 #### 기능 설명
 - 프로필사진, 이름, 누르면 다이얼로 이동하는 통화 버튼이 포함된 연락처 목록을 RecyclerView를 활용하여 구현하였다.
 - 각각의 연락처를 클릭하면 프로필사진과 이름, 전화번호, 이메일을 표시하는 상세정보 페이지로 이동한다. 각각의 통화, 문자, 이메일 버튼은 클릭시 해당 어플리케이션으로 이동하여 통화 발신과 문자 및 이메일 전송의 기능을 수행한다.
@@ -48,6 +57,8 @@ Android Studio와 Git을 활용한 협업에 익숙해지는 것이 궁극적인
 #### 기능 설명
 - 프로그램의 drawable폴더에 저장된 20개의 이미지를 RecyclerView의 GridLayoutManager를 활용해 한 행에 3개씩 보여주는 갤러리 화면이다.
 - 각각의 사진을 클릭하면 사진 원본을 보여주는 새로운 Activity로 이동한다. PhotoView 라이브러리를 사용해 해당 이미지를 두 손가락으로 확대 및 축소할 수 있도록 구현하였다.
+
+***
 
 ### Tab 3 - 단어장
 #### 기능 설명
