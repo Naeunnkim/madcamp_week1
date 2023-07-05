@@ -1,7 +1,6 @@
 package com.example.week1_android_studio;
 
 import android.content.Intent;
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -9,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,8 +22,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
@@ -51,6 +51,8 @@ public class ContactsFragment extends Fragment {
 
         Toolbar toolbar = rootView.findViewById(R.id.contacts_toolbar);
 
+//        Toast.makeText(getActivity(), "왔다", Toast.LENGTH_SHORT).show();
+
         toolbar.setOnMenuItemClickListener(menuItem -> {
             if (menuItem.getItemId() == R.id.tab1){
                 Intent intent = new Intent(getContext(), ContactsAddPerson.class);
@@ -59,7 +61,6 @@ public class ContactsFragment extends Fragment {
             }
             return true;
         });
-
 
         try {
             initUI(rootView);
@@ -106,8 +107,7 @@ public class ContactsFragment extends Fragment {
         ArrayList<String> emailDataSet = new ArrayList<>();
         ArrayList<String> galleryDataSet = new ArrayList<>();
 
-        AssetManager assetManager = getContext().getAssets();
-        InputStream is = assetManager.open("jsons/contacts.json");
+        FileInputStream is = getContext().openFileInput("contactsInfo.json");
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 
@@ -133,6 +133,7 @@ public class ContactsFragment extends Fragment {
             emailDataSet.add(email_address);
             galleryDataSet.add(image_path);
         }
+        Toast.makeText(getActivity(), "" + nameDataSet.size(), Toast.LENGTH_SHORT).show();
 
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
 

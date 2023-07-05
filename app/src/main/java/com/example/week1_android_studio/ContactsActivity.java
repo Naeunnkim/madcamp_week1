@@ -47,8 +47,10 @@ public class ContactsActivity extends AppCompatActivity {
         contact_number.setText(number);
         contact_email.setText(email);
 
-        int id = getResources().getIdentifier(pic, "drawable", this.getPackageName());
-        contact_profile.setImageResource(id);
+        if (pic.length() != 0){
+            int id = getResources().getIdentifier(pic, "drawable", getPackageName());
+            contact_profile.setImageResource(id);
+        }
 
         call_btn.setOnClickListener(new View.OnClickListener() {
             @Override

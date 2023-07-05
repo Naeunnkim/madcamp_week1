@@ -84,8 +84,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         String pic = galleryDataSet.get(position);
 
         Context context = holder.contact_recyclerview.getContext();
-        int id = context.getResources().getIdentifier(pic, "drawable", context.getPackageName());
-        holder.imageView.setImageResource(id);
+        if (pic.length() != 0){
+            int id = context.getResources().getIdentifier(pic, "drawable", context.getPackageName());
+            holder.imageView.setImageResource(id);
+        } else {
+            holder.imageView.setImageResource(R.drawable.profile);
+        }
         holder.imageView.setClipToOutline(true);
 
         holder.contact_recyclerview.setOnClickListener(new View.OnClickListener() {

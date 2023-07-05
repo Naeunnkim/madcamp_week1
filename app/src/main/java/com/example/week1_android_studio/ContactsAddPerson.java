@@ -1,7 +1,6 @@
 package com.example.week1_android_studio;
 
 import android.content.Context;
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,15 +11,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 
 public class ContactsAddPerson extends AppCompatActivity {
     @Override
@@ -55,27 +52,19 @@ public class ContactsAddPerson extends AppCompatActivity {
             EditText numberEditText = (EditText) findViewById(R.id.number_edittext);
             EditText emailEditText = (EditText) findViewById(R.id.email_edittext);
 
-            AssetManager assetManager = getAssets();
-
+//            File file = new File(getApplication().getFilesDir(), "contactsInfo.json");
+//            if (file.exists()){
+//                Toast.makeText(getApplicationContext(), "이이이이이이", Toast.LENGTH_LONG).show();
+//                try {
+//                    FileOutputStream os = openFileOutput("contactsInfo.json", Context.MODE_APPEND);
+//                    os.close();
+//                } catch (FileNotFoundException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            }
             try{
-                InputStream is = assetManager.open("jsons/contacts.json");
-
-                BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-
-                StringBuilder buffer = new StringBuilder();
-                String line = reader.readLine();
-                while (line != null) {
-                    buffer.append(line + "\n");
-                    line = reader.readLine();
-                }
-
-                reader.close();
-                is.close();
-
-                String jsonData = buffer.toString();
-
-                JSONArray jsonArray = new JSONArray(jsonData);
-
+                FileOutputStream os = openFileOutput("contactsInfo.json", Context.MODE_APPEND);
+                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os));
                 JSONObject jsonObject = new JSONObject();
 
                 jsonObject.put("name", nameEditText.getText().toString());
@@ -83,19 +72,16 @@ public class ContactsAddPerson extends AppCompatActivity {
                 jsonObject.put("email", emailEditText.getText().toString());
                 jsonObject.put("pic", "");
 
-                jsonArray.put(jsonObject);
-
-                String newJsonData = jsonArray.toString();
                 String str = jsonObject.toString();
 
-                Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG).show();
-
-                OutputStream os = openFileOutput("contacts.json", Context.MODE_PRIVATE);
-
-                os.write(str.getBytes());
+                writer.write(str);
+                Toast.makeText(getApplicationContext(), "" + str.toString(), Toast.LENGTH_LONG).show();
+                writer.close();
                 os.close();
             }
-            catch (IOException e) {e.printStackTrace();} catch (JSONException e) {e.printStackTrace(); }
+            catch (IOException e) {e.printStackTrace();} catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
 
             finish();
             return true;

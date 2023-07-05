@@ -31,13 +31,12 @@ import java.util.Random;
 public class Game3SelectActivity extends AppCompatActivity{
     private String WORD;
     private String MEAN;
+    private ArrayList<String> englishDataSet;
+    private ArrayList<String> koreanDataSet;
 
     Dialog dialog;
 
     private String[] getWord() throws IOException, JSONException {
-        ArrayList<String> englishDataSet = new ArrayList<>();
-        ArrayList<String> koreanDataSet = new ArrayList<>();
-
         String[] eng_kor = new String[2];
 
 //        String day = getIntent().getStringExtra("day");
@@ -121,6 +120,13 @@ public class Game3SelectActivity extends AppCompatActivity{
             @Override
             public void afterTextChanged(Editable editable) {
                 if (editable.length() == 1){
+
+//                    String edt1Str = editText1.getText().toString();
+//                    String edt2Str = editText2.getText().toString();
+//                    String edt3Str = editText3.getText().toString();
+//                    String edt4Str = editText4.getText().toString();
+//                    String edt5Str = editText5.getText().toString();
+
                     validateRow(
                             findViewById(R.id.edt_11),
                             findViewById(R.id.edt_12),
@@ -444,6 +450,10 @@ public class Game3SelectActivity extends AppCompatActivity{
                 }
             }
         });
+    }
+
+    private boolean checkValidWord(String word){
+        return englishDataSet.contains(word);
     }
 
     @Override
